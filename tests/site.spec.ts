@@ -4,6 +4,7 @@ import AxeBuilder from "@axe-core/playwright";
 test("desktop renders, images load, WebGL starts, and layout stays within viewport", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
+  page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Bold ideas.Solid impact.");
   await page.evaluate(() => document.fonts.ready);

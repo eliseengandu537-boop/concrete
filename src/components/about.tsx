@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "motion/react";
+import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { Mark, Reveal, SectionLabel } from "./ui";
 import { ProjectButton } from "./site-shell";
 
 function Word({ children, progress, start, end }: { children: string; progress: MotionValue<number>; start: number; end: number }) {
   const opacity = useTransform(progress, [start, end], [0.38, 1]);
-  const reduced = useReducedMotion();
-  return <motion.span style={{ opacity: reduced ? 1 : opacity }}>{children} </motion.span>;
+  // CSS overrides opacity for reduced motion, keeping server and client markup identical.
+  return <motion.span style={{ opacity }}>{children} </motion.span>;
 }
 
 export function About() {
