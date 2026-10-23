@@ -1,0 +1,48 @@
+export const agency = {
+  name: "Concrete Agency",
+  email: "eliseeweb@gmail.com",
+  description: "Bold ideas. Solid impact. Concrete Agency brings strategy, design and development together to create brands and digital experiences that matter.",
+};
+
+export const services = [
+  { name: "Brand strategy & identity", short: "Branding", description: "A clear point of view. An unmistakable identity. We find what makes your business different and turn it into a brand people feel, remember, and choose.", tags: ["Positioning", "Visual identity", "Brand guidelines", "Art direction"] },
+  { name: "Web design", short: "Web design", description: "Thoughtful experiences that look exceptional and feel effortless. We connect your business goals with what your audience actually needs, from the first impression to the final click.", tags: ["UX strategy", "UI design", "Responsive design", "Prototyping"] },
+  { name: "Web development", short: "Development", description: "Beautiful design deserves a solid foundation. We build fast, accessible, easy-to-manage websites with the care and craft that make the difference long after launch.", tags: ["Custom websites", "E-commerce", "CMS integration", "Performance"] },
+  { name: "Graphic design", short: "Graphic design", description: "Make every touchpoint feel like you. From campaigns and presentations to packaging and social content, we create a consistent visual world around your brand.", tags: ["Campaign design", "Print & packaging", "Social content", "Presentations"] },
+  { name: "Paid media", short: "Paid media", description: "Put the right message in front of the right people. We bring creative thinking and careful measurement together to build campaigns with a clear business purpose.", tags: ["Campaign strategy", "Google Ads", "Paid social", "Creative testing"] },
+  { name: "Search & visibility", short: "SEO", description: "Help your audience find you when it matters. We work on the technical foundations, useful content, and clear structure that give your website room to grow.", tags: ["Technical SEO", "Content strategy", "On-page SEO", "Analytics"] },
+];
+
+export const projects = [
+  { id: "routed", name: "Routed", category: "Cloud infrastructure", services: "Web design · Development", image: "/images/routed.webp", color: "#e8e9f0", description: "A clear digital presence for a complex world. A confident visual system brings cloud infrastructure into focus, pairing a strong typographic hierarchy with a purposeful user experience.", focus: ["Clear information architecture", "A confident visual language", "Responsive digital experience"] },
+  { id: "rage", name: "Rage Festival", category: "Music & culture", services: "Web design · Development", image: "/images/rage.webp", color: "#d9e0cf", description: "The energy of a live experience, translated to the screen. Bold creative direction and an immersive interface put the festival experience front and centre.", focus: ["Immersive art direction", "Expressive typography", "Mobile-first exploration"] },
+  { id: "10-four", name: "10-Four", category: "Professional services", services: "Web design · Development", image: "/images/10-four.webp", color: "#ded8eb", description: "Making a first impression with purpose. A considered balance of content, brand expression, and navigation creates a direct route from curiosity to connection.", focus: ["Brand-led web design", "Considered content hierarchy", "A clear path to enquiry"] },
+  { id: "nutriflow", name: "NutriFlow", category: "Health & wellness", services: "Web design · Development", image: "/images/nutriflow.webp", color: "#e9dfd3", description: "Fresh thinking for everyday wellbeing. A bright, approachable digital experience makes room for the brand story, with a clean structure that keeps the details easy to explore.", focus: ["Approachable brand expression", "Product storytelling", "Responsive page design"] },
+];
+
+export const articles = [
+  { slug: "good-websites-start-with-better-questions", category: "Strategy", readTime: "3 min read", title: "Good websites start with better questions.", description: "Before pixels, before code: the conversations that give a project direction.", visual: "questions", paragraphs: [
+    "A new website often begins with a visual wish list: a different colour, a bigger headline, more movement. Those ideas can be useful. But the strongest starting point is a clear understanding of the business and the people it serves.",
+    "Start with the visitor. Who are they, what brought them here, and what do they need to understand before taking the next step? A potential customer comparing suppliers needs different information from someone who already knows your brand and wants to get in touch.",
+    "Next, define the action that matters. A website cannot give everything equal priority. Choose a primary goal for each key page, then make the content, layout, and navigation work together to support it. Secondary actions can still have a place without competing for attention.",
+    "Look at what you already know. Customer questions, sales conversations, support requests, and existing analytics can reveal where people get stuck. They offer a practical foundation for design decisions and help separate genuine needs from internal assumptions.",
+    "Finally, agree on what success will look like and how you will check it. That might mean better-qualified enquiries, easier access to product information, or a simpler publishing process for your team. Make the goal specific enough to guide the work.",
+    "The output of this stage does not have to be an enormous document. A short, shared brief that names the audience, the goal, the essential content, and the constraints is often enough to give the project a solid foundation."
+  ] },
+  { slug: "the-details-are-the-design", category: "Design", readTime: "3 min read", title: "The details are the design.", description: "Why the things you barely notice change the way a brand feels.", visual: "details", paragraphs: [
+    "You can often feel a considered website before you can explain why. The typography is comfortable to read. The spacing has a rhythm. Buttons behave as you expect. Small decisions work together to create a sense of clarity and confidence.",
+    "Typography does more than set a mood. Size, weight, line length, and contrast tell readers where to start and how ideas relate. A restrained type system gives every heading and paragraph a clear role, making even detailed information easier to follow.",
+    "Spacing is part of that system. Consistent relationships between elements help people recognise groups and understand hierarchy. Generous space is useful when it serves a purpose; it should give important content room, rather than push useful information out of reach.",
+    "Motion can explain what changed, draw attention to a next step, or make an interaction feel responsive. It works best when it supports the task. A transition should have a reason, and the experience should remain clear for people who prefer reduced motion.",
+    "The same care applies to less visible states: keyboard focus, validation messages, loading behaviour, and small screens. These moments are part of the design, because they are part of how people experience the brand.",
+    "A polished result comes from making these decisions consistently. The details do not need to call attention to themselves. They need to make the whole experience feel natural."
+  ] },
+  { slug: "a-website-is-never-really-finished", category: "Development", readTime: "3 min read", title: "Launch is just the beginning.", description: "Build a website that can evolve with the business behind it.", visual: "launch", paragraphs: [
+    "Launch day is a milestone. It is also the first day your website meets a wider audience. Real questions, new content, and changing business priorities will start to shape what it needs to do next.",
+    "A good foundation makes that evolution easier. Reusable components and a clear content structure allow your team to add pages without reinventing the design each time. Consistency becomes a practical advantage as the site grows.",
+    "Plan ownership before launch. Decide who updates content, who reviews enquiries, and who looks after technical maintenance. Make sure the team has access to the tools and instructions it needs, with a clear process for changes.",
+    "Keep an eye on the fundamentals. Check important forms and links, review the experience on smaller screens, and watch for oversized media or content that has become outdated. Small, regular improvements are easier to manage than a long list of neglected issues.",
+    "When you collect analytics, begin with questions rather than dashboards. Are visitors finding the pages they need? Where are they leaving a key journey? Use that evidence alongside customer feedback to decide what deserves attention.",
+    "A website is a living part of your business. Build it to be understandable, maintainable, and flexible, then give it the care it needs to stay useful."
+  ] },
+];
