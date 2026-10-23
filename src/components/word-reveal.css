@@ -1,0 +1,13 @@
+/* Native intersection timing + composited transforms: no scroll interception needed. */
+.heading-word-mask{display:inline-block;overflow:clip;vertical-align:top;padding:.03em .035em .12em;margin:-.03em -.035em -.12em}
+.heading-word{display:inline-block;transform-origin:left bottom}
+.word-reveal[data-reveal-state="visible"] .heading-word{transition:transform .85s cubic-bezier(.22,1,.36,1),opacity .65s ease;transition-delay:var(--word-delay,0ms)}
+.word-reveal[data-reveal-state="waiting"] .heading-word{opacity:0;transform:translate3d(0,110%,0) rotate(2deg)}
+.word-reveal[data-reveal-state="visible"] .heading-word{opacity:1;transform:translate3d(0,0,0) rotate(0deg)}
+.hero h1.word-reveal{animation:none}
+.hero h1.word-reveal .impact-word svg{transition:opacity .8s ease .45s,transform 1s cubic-bezier(.22,1,.36,1) .45s;transform-origin:left}
+.hero h1.word-reveal[data-reveal-state="waiting"] .impact-word svg{opacity:0;transform:scaleX(.2)}
+.hero h1.word-reveal[data-reveal-state="visible"] .impact-word svg{opacity:.85;transform:scaleX(1)}
+.contact-section h2>.heading-word-mask{color:inherit;font-family:inherit;font-style:inherit;letter-spacing:inherit}
+@media(prefers-reduced-motion:reduce){.word-reveal .heading-word,.word-reveal[data-reveal-state] .heading-word{opacity:1!important;transform:none!important;transition:none!important}.hero h1.word-reveal .impact-word svg{opacity:.85!important;transform:none!important;transition:none!important}}
+@media print{.word-reveal .heading-word{opacity:1!important;transform:none!important}}

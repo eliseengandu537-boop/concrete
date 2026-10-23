@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/dm-sans";
 import "./globals.css";
+import "@/components/growth-services.css";
+import "@/components/word-reveal.css";
 import { SiteShell } from "@/components/site-shell";
 import { agency } from "@/lib/content";
 

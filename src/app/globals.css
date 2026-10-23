@@ -226,7 +226,7 @@ button{color:inherit}
 .contact-pretitle{font-size:9px;letter-spacing:.11em;display:flex;align-items:center;gap:11px;color:#bec8ae}
 .contact-star{font-size:72px;line-height:1;color:var(--lime);padding-right:8px}
 .contact-section h2{font-size:clamp(64px,8.2vw,120px);letter-spacing:-.072em;line-height:1.04}
-.contact-section h2>span{color:var(--lime);font-family:Georgia,serif;font-style:italic;letter-spacing:-.075em}
+.contact-section h2>.contact-accent{color:var(--lime);font-family:Georgia,serif;font-style:italic;letter-spacing:-.075em}
 .contact-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:50px;gap:24px}
 .contact-bottom>p{font-size:14px;line-height:1.9;color:#b7c1a8}
 .button-large{min-height:63px;padding-left:28px;gap:48px}

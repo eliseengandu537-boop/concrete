@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { Arrow } from "./ui";
 import { ProjectButton } from "./site-shell";
+import { WordReveal } from "./word-reveal";
 
 const Sculpture = dynamic(() => import("./sculpture"), { ssr: false, loading: () => <div className="sculpture-loading" /> });
 
@@ -12,7 +13,7 @@ export function Hero() {
     <div className="container hero-inner">
       <div className="hero-copy">
         <div className="eyebrow hero-enter"><span className="status-dot" />INDEPENDENT MINDS. CONCRETE IDEAS.</div>
-        <h1 id="hero-heading" className="hero-enter delay-1">Bold ideas.<br />Solid <span className="impact-word">impact<svg viewBox="0 0 420 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18Q200 -4 414 10" /></svg></span><span className="lime">.</span></h1>
+        <WordReveal as="h1" id="hero-heading" delay={100}>Bold ideas.<br />Solid <span className="impact-word">impact<svg viewBox="0 0 420 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18Q200 -4 414 10" /></svg></span><span className="lime">.</span></WordReveal>
         <p className="hero-description hero-enter delay-2">We build brands and digital experiences<br className="desktop-break" /> with substance. Thoughtfully designed.<br className="desktop-break" /> Beautifully built. Impossible to ignore.</p>
         <div className="hero-buttons hero-enter delay-3"><a href="#work" className="button button-lime">Explore our work<span className="button-icon"><Arrow diagonal /></span></a><ProjectButton className="text-button" /></div>
       </div>

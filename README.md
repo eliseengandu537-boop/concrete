@@ -39,7 +39,11 @@ Browser checks use an installed Google Chrome. They cover responsive rendering, 
 
 ## Design and behaviour
 
-Graphite and warm white with an acid-yellow accent; self-hosted Manrope and DM Sans; glass navigation; a real-time reflective metal sculpture; scroll reveals; filterable portfolio cards; expandable services; and responsive project enquiry and portfolio dialogs.
+Graphite and warm white with an acid-yellow accent; self-hosted Manrope and DM Sans; glass navigation; a real-time reflective metal sculpture; word-by-word scroll highlights; filterable portfolio cards; expandable services; and responsive project enquiry and portfolio dialogs.
+
+The business growth section presents eight additional offerings: landing pages, smart enquiry forms, WhatsApp and booking integrations, AI enquiry assistants, lead dashboards / CRM, automatic follow-ups, email outreach integrations, and results dashboards. These are services offered to clients. Clicking an offering preselects it in the enquiry form. The section uses a sticky text sequence on desktop and a compact reveal on mobile, with a static reduced-motion experience.
+
+Headings now use the motion style requested from FedPump: words rise from clipped masks with a slight rotation, a 48 ms stagger, and a soft 850 ms settle when they enter the viewport. Hero, work, services, business growth, journal, and contact headings share the reusable `WordReveal` component. Native scrolling, readable server-rendered text, and instant reduced-motion rendering are preserved. The studio statement retains its scroll-linked colour fill.
 
 The sculpture pauses when off-screen or the tab is hidden, reduces resolution on mobile, respects reduced motion, and falls back to a CSS illustration if WebGL is unavailable. Fonts and imagery are self-hosted, and no third-party analytics are installed.
 
