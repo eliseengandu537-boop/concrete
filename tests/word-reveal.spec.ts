@@ -43,7 +43,7 @@ test("mobile headings keep their accents and respect live reduced-motion changes
   await expect(word).toHaveCSS("transform", "none");
   await page.locator("#contact").scrollIntoViewIfNeeded();
   await expect(page.locator(".contact-accent .heading-word")).toHaveCSS("font-style", "italic");
-  await expect(page.locator(".contact-accent .heading-word")).toHaveCSS("color", "rgb(216, 250, 103)");
+  await expect(page.locator(".contact-accent .heading-word")).toHaveCSS("color", "rgb(255, 115, 77)");
   await page.screenshot({ path: "test-results/masked-headings-mobile.png" });
   for (const width of [320, 768, 1024]) {
     await page.setViewportSize({ width, height: 844 });

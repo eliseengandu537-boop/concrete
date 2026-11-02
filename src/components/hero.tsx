@@ -1,31 +1,25 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Arrow } from "./ui";
 import { ProjectButton } from "./site-shell";
 import { WordReveal } from "./word-reveal";
-
-const Sculpture = dynamic(() => import("./sculpture"), { ssr: false, loading: () => <div className="sculpture-loading" /> });
+import { Horizon } from "./horizon";
+import { HeroShowcase } from "./hero-showcase";
 
 export function Hero() {
-  return <section className="hero" aria-labelledby="hero-heading">
-    <div className="hero-aura" aria-hidden="true" />
+  return <section className="hero cinematic-hero" aria-labelledby="hero-heading">
+    <Horizon />
     <div className="container hero-inner">
       <div className="hero-copy">
-        <div className="eyebrow hero-enter"><span className="status-dot" />INDEPENDENT MINDS. CONCRETE IDEAS.</div>
-        <WordReveal as="h1" id="hero-heading" delay={100}>Bold ideas.<br />Solid <span className="impact-word">impact<svg viewBox="0 0 420 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18Q200 -4 414 10" /></svg></span><span className="lime">.</span></WordReveal>
-        <p className="hero-description hero-enter delay-2">We build brands and digital experiences<br className="desktop-break" /> with substance. Thoughtfully designed.<br className="desktop-break" /> Beautifully built. Impossible to ignore.</p>
-        <div className="hero-buttons hero-enter delay-3"><a href="#work" className="button button-lime">Explore our work<span className="button-icon"><Arrow diagonal /></span></a><ProjectButton className="text-button" /></div>
+        <div className="eyebrow hero-enter"><span className="status-dot" />INDEPENDENT MINDS. EXTRAORDINARY POSSIBILITIES.</div>
+        <WordReveal as="h1" id="hero-heading" delay={100}>Bold ideas.<br />Solid <span className="hero-italic">impact.</span></WordReveal>
+        <p className="hero-description hero-enter delay-2">A creative agency for what comes next.<br />Brands that connect. Websites that move you.<br className="mobile-break" /> Digital experiences that mean business.</p>
+        <div className="hero-buttons hero-enter delay-3"><ProjectButton className="hero-orb" arrow={false}><Arrow diagonal /><span>Let’s make<br /><strong>it concrete.</strong></span></ProjectButton></div>
       </div>
-      <div className="hero-art hero-enter delay-2">
-        <div className="art-coordinates"><span>EXPLORATION — 001</span><span>FORM / FUNCTION</span></div>
-        <div className="art-halo" /><div className="art-orbit orbit-one" /><div className="art-orbit orbit-two" />
-        <Sculpture />
-        <span className="art-cross cross-one" aria-hidden="true">+</span><span className="art-cross cross-two" aria-hidden="true">+</span>
-        <div className="art-caption"><span className="caption-symbol">↗</span><span>A little bold.<br /><strong>A lot of substance.</strong></span><span className="caption-star" aria-hidden="true">✳</span></div>
-        <div className="art-side-label">IDEAS, GIVEN FORM.</div>
-      </div>
-      <div className="hero-bottom hero-enter delay-3"><span>STRATEGY + DESIGN + TECHNOLOGY</span><span className="hero-bottom-mid">A good feeling. A solid foundation.</span><a href="#work">SCROLL TO EXPLORE <span>↓</span></a></div>
+      <div className="hero-margin-note hero-note-left hero-enter delay-3"><span className="margin-note-number">01 — 03</span><p>Strategy.<br />Design.<br /><em>Possibility.</em></p><span className="margin-note-rule" /><span>THOUGHTFUL BY NATURE.</span></div>
+      <div className="hero-margin-note hero-note-right hero-enter delay-3"><span className="margin-note-number">FROM IDEA<br />TO IMPACT.</span><p>One partner.<br /><em>Every possibility.</em></p><a href="#work">Discover our work <Arrow diagonal /></a></div>
+      <HeroShowcase />
+      <div className="hero-bottom"><span>STRATEGY + DESIGN + TECHNOLOGY</span><span className="hero-bottom-mid">A good feeling. A solid foundation.</span><a href="#work">SCROLL TO EXPLORE <span>↓</span></a></div>
     </div>
   </section>;
 }

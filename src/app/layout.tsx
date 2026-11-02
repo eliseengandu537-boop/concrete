@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "@fontsource-variable/manrope";
 import "@fontsource-variable/dm-sans";
 import "./globals.css";
 import "@/components/growth-services.css";
 import "@/components/word-reveal.css";
+import "./editorial-theme.css";
+import "@/components/hero.css";
+import "@/components/hero-showcase.css";
 import { SiteShell } from "@/components/site-shell";
 import { agency } from "@/lib/content";
+
+const editorial = localFont({
+  src: [
+    { path: "../../public/fonts/cormorant-garamond-latin.woff2", weight: "400 500", style: "normal" },
+    { path: "../../public/fonts/cormorant-garamond-latin-italic.woff2", weight: "400 500", style: "italic" },
+  ],
+  variable: "--font-cormorant",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://concrete-agency.eliseengandu814.chatgpt.site"),
@@ -16,5 +29,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body id="top"><SiteShell>{children}</SiteShell></body></html>;
+  return <html lang="en" className={editorial.variable}><body id="top"><SiteShell>{children}</SiteShell></body></html>;
 }

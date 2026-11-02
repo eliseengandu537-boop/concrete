@@ -27,25 +27,27 @@ $env:PREVIEW_URL = 'http://127.0.0.1:3030'
 npm run test:e2e
 ```
 
-Browser checks use an installed Google Chrome. They cover responsive rendering, WebGL initialization, working image assets, project filtering, modal focus return, the service accordion, form validation, journal navigation, reduced motion, and automated accessibility checks.
+Browser checks use an installed Google Chrome. They cover responsive rendering, showcase imagery and links, hero enquiries, off-screen animation pausing, project filtering, modal focus return, the service accordion, form validation, journal navigation, reduced motion, and automated accessibility checks.
 
 ## Structure
 
 - `src/app`: home, journal articles, privacy notice, 404, global styles and metadata.
-- `src/components`: reusable page sections, navigation, dialogs, motion, and the dynamically loaded Three.js sculpture.
+- `src/components`: reusable page sections, navigation, dialogs, word motion, the SVG light horizon, and glass showcase previews.
+- `src/app/editorial-theme.css`: the shared midnight, electric-blue, and coral design system.
+- `public/fonts`: self-hosted Cormorant Garamond normal/italic and its SIL Open Font License.
 - `src/lib/content.ts`: agency contact information, service descriptions, projects, and journal content.
 - `public/images`: locally served portfolio images retained from the reference.
 - `.openai/hosting.json`: private Sites project identity and static deployment configuration.
 
 ## Design and behaviour
 
-Graphite and warm white with an acid-yellow accent; self-hosted Manrope and DM Sans; glass navigation; a real-time reflective metal sculpture; word-by-word scroll highlights; filterable portfolio cards; expandable services; and responsive project enquiry and portfolio dialogs.
+The supplied visual reference guides a midnight-black design with electric-blue and cantaloupe-orange light. A centered Cormorant Garamond headline sits above a glowing horizon with fine SVG light trails, quiet stars, and three linked glass previews. Compact glass navigation, a circular project enquiry button, editorial section headings, and a coordinated colour palette carry the direction through the full site. Portfolio filters, expandable services, and responsive enquiry dialogs retain their original functionality.
 
 The business growth section presents eight additional offerings: landing pages, smart enquiry forms, WhatsApp and booking integrations, AI enquiry assistants, lead dashboards / CRM, automatic follow-ups, email outreach integrations, and results dashboards. These are services offered to clients. Clicking an offering preselects it in the enquiry form. The section uses a sticky text sequence on desktop and a compact reveal on mobile, with a static reduced-motion experience.
 
 Headings now use the motion style requested from FedPump: words rise from clipped masks with a slight rotation, a 48 ms stagger, and a soft 850 ms settle when they enter the viewport. Hero, work, services, business growth, journal, and contact headings share the reusable `WordReveal` component. Native scrolling, readable server-rendered text, and instant reduced-motion rendering are preserved. The studio statement retains its scroll-linked colour fill.
 
-The sculpture pauses when off-screen or the tab is hidden, reduces resolution on mobile, respects reduced motion, and falls back to a CSS illustration if WebGL is unavailable. Fonts and imagery are self-hosted, and no third-party analytics are installed.
+The horizon uses CSS and SVG, pauses when off-screen or the tab is hidden, and becomes static with reduced motion. It requires no WebGL or extra animation dependency. Fonts and imagery are self-hosted, and no third-party analytics are installed.
 
 The enquiry form validates the visitor's details and opens an email draft addressed to `eliseeweb@gmail.com`. The visitor reviews and sends the draft in their email application. The site does not claim to send or store enquiries itself.
 

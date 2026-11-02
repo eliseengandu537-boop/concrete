@@ -19,7 +19,7 @@ function ScrollWord({ word, index, total, progress, highlight }: {
   const end = Math.min(1, start + 0.18);
   const opacity = useTransform(progress, [start, end], [0.58, 1]);
   const y = useTransform(progress, [start, end], ["0.18em", "0em"]);
-  const color = useTransform(progress, [start, end], ["#bcc5af", highlight ? "#d8fa67" : "#f4f4ed"]);
+  const color = useTransform(progress, [start, end], ["#b6c2d1", highlight ? "#ff734d" : "#f7f4ef"]);
   return <span className="scroll-word-mask"><motion.span className={`scroll-word ${highlight ? "scroll-word-accent" : ""}`} style={{ opacity, y, color }}>{word}</motion.span>{" "}</span>;
 }
 
