@@ -36,7 +36,7 @@ test("studio text still advances and reverses with scroll position", async ({ pa
   await expect.poll(() => lastWord.evaluate(element => Number(getComputedStyle(element).opacity))).toBeLessThan(0.7);
   await page.evaluate(({ top, height }) => window.scrollTo(0, top + height - innerHeight * 0.4), coordinates);
   await expect.poll(() => lastWord.evaluate(element => Number(getComputedStyle(element).opacity))).toBeGreaterThan(0.99);
-  await expect(lastWord).toHaveCSS("color", "rgb(255, 115, 77)");
+  await expect(lastWord).toHaveCSS("color", "rgb(141, 234, 250)");
   await page.evaluate(top => window.scrollTo(0, top - innerHeight * 0.9), coordinates.top);
   await expect.poll(() => lastWord.evaluate(element => Number(getComputedStyle(element).opacity))).toBeLessThan(0.7);
   await page.locator("#growth-services").scrollIntoViewIfNeeded();

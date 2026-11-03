@@ -71,9 +71,10 @@ test("portfolio filtering and keyboard-accessible project details", async ({ pag
 
 test("services expose their content and form validates required fields", async ({ page }) => {
   await page.goto("/");
-  const branding = page.getByRole("button", { name: /01 Brand strategy & identity/ });
-  await branding.click();
-  await expect(branding).toHaveAttribute("aria-expanded", "true");
+  const website = page.locator("#service-trigger-0");
+  await expect(website).toContainText("Website, included");
+  if (await website.getAttribute("aria-expanded") === "false") await website.click();
+  await expect(website).toHaveAttribute("aria-expanded", "true");
   await expect(page.locator("#service-panel-0")).toBeVisible();
   await page.locator(".button-nav").click();
   await expect(page.getByRole("dialog", { name: /Make it/ })).toBeVisible();
@@ -82,8 +83,8 @@ test("services expose their content and form validates required fields", async (
   await page.getByLabel("Your name").fill("Alex Example");
   await page.getByLabel("Email address").fill("alex@example.com");
   await page.getByLabel("A little about your project").fill("A new brand website for our studio.");
-  await page.getByLabel("Web design", { exact: true }).check();
-  await expect(page.getByLabel("Web design", { exact: true })).toBeChecked();
+  await page.getByLabel("Website build", { exact: true }).check();
+  await expect(page.getByLabel("Website build", { exact: true })).toBeChecked();
   const accessibility = await new AxeBuilder({ page }).include("dialog[open]").withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   expect(accessibility.violations).toEqual([]);
   await page.keyboard.press("Escape");
@@ -104,9 +105,17 @@ test("mobile navigation, small-screen layout, and reduced motion", async ({ page
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await page.evaluate(() => document.fonts.ready);
-  await page.getByRole("button", { name: "Open menu" }).click();
+  const menuButton = page.getByRole("button", { name: "Open menu" });
+  await menuButton.focus();
+  await page.keyboard.press("Enter");
   await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
-  await page.getByRole("navigation", { name: "Mobile navigation" }).getByRole("link", { name: /Services/ }).click();
+  await page.keyboard.press("Escape");
+  await expect(menuButton).toBeFocused();
+  await expect(menuButton).toHaveAttribute("aria-expanded", "false");
+  await page.keyboard.press("Enter");
+  const servicesLink = page.getByRole("navigation", { name: "Mobile navigation" }).getByRole("link", { name: /What we do/ });
+  await servicesLink.focus();
+  await page.keyboard.press("Enter");
   await expect(page.getByRole("button", { name: "Open menu" })).toHaveAttribute("aria-expanded", "false");
   await expect(page).toHaveURL(/#services/);
   expect(await page.locator(".discipline-track").evaluate(element => getComputedStyle(element).animationName)).toBe("none");

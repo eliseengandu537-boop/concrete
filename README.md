@@ -33,7 +33,7 @@ Browser checks use an installed Google Chrome. They cover responsive rendering, 
 
 - `src/app`: home, journal articles, privacy notice, 404, global styles and metadata.
 - `src/components`: reusable page sections, navigation, dialogs, word motion, the SVG light horizon, and glass showcase previews.
-- `src/app/editorial-theme.css`: the shared midnight, electric-blue, and coral design system.
+- `src/app/editorial-theme.css`: the shared ocean-blue, cyan, and icy-glass design system.
 - `public/fonts`: self-hosted Cormorant Garamond normal/italic and its SIL Open Font License.
 - `src/lib/content.ts`: agency contact information, service descriptions, projects, and journal content.
 - `public/images`: locally served portfolio images retained from the reference.
@@ -41,7 +41,9 @@ Browser checks use an installed Google Chrome. They cover responsive rendering, 
 
 ## Design and behaviour
 
-The supplied visual reference guides a midnight-black design with electric-blue and cantaloupe-orange light. A centered Cormorant Garamond headline sits above a glowing horizon with fine SVG light trails, quiet stars, and three linked glass previews. Compact glass navigation, a circular project enquiry button, editorial section headings, and a coordinated colour palette carry the direction through the full site. Portfolio filters, expandable services, and responsive enquiry dialogs retain their original functionality.
+The latest supplied visual reference guides an ocean-blue and luminous-cyan design with a fluted-glass background. A centered Cormorant Garamond headline sits over moving blue light, fine vertical glass lines, and three linked glass previews. Compact glass navigation, a circular project enquiry button, editorial section headings, and a coordinated blue palette carry the direction through the full site. Portfolio filters, expandable services, and responsive enquiry dialogs retain their original functionality.
+
+The What We Do content adapts the customer-facing service information from the supplied `Concrete Agency - What We Do.pdf` team guide. It presents ten services, an outbound/inbound-to-dashboard workflow, and the Website Build, AI Integration, and Full AI Integration packages. The included-website offer is explicitly tied to Full AI Integration. Internal team assignments, sales scripts, and unverified legal assertions are not published. The original PDF and extraction tools remain outside the public website.
 
 The business growth section presents eight additional offerings: landing pages, smart enquiry forms, WhatsApp and booking integrations, AI enquiry assistants, lead dashboards / CRM, automatic follow-ups, email outreach integrations, and results dashboards. These are services offered to clients. Clicking an offering preselects it in the enquiry form. The section uses a sticky text sequence on desktop and a compact reveal on mobile, with a static reduced-motion experience.
 

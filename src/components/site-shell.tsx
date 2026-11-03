@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { agency, services, growthServices } from "@/lib/content";
 import { Arrow, Mark } from "./ui";
 
-const ProjectContext = createContext<(service?: string) => void>(() => {});
-export function ProjectButton({ children = "Start a project", className = "button button-lime", arrow = true, service }: { children?: ReactNode; className?: string; arrow?: boolean; service?: string }) {
+const ProjectContext = createContext<(service?: string, packageName?: string) => void>(() => {});
+export function ProjectButton({ children = "Start a project", className = "button button-lime", arrow = true, service, packageName }: { children?: ReactNode; className?: string; arrow?: boolean; service?: string; packageName?: string }) {
   const open = useContext(ProjectContext);
-  return <button className={className} onClick={() => open(service)}>{children}{arrow && <span className="button-icon"><Arrow diagonal /></span>}</button>;
+  return <button className={className} onClick={() => open(service, packageName)}>{children}{arrow && <span className="button-icon"><Arrow diagonal /></span>}</button>;
 }
 
 function ProjectDialog({ dialogRef }: { dialogRef: React.RefObject<HTMLDialogElement | null> }) {
@@ -18,7 +18,7 @@ function ProjectDialog({ dialogRef }: { dialogRef: React.RefObject<HTMLDialogEle
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const selected = data.getAll("services").join(", ") || "I'd like your guidance";
-    const body = `Hello Concrete Agency,\n\nI'd love to discuss a project.\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company") || "Not specified"}\nServices: ${selected}\nBudget: ${data.get("budget")}\n\nProject details:\n${data.get("message")}\n\nLooking forward to connecting!`;
+    const body = `Hello Concrete Agency,\n\nI'd love to discuss a project.\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company") || "Not specified"}\nPackage: ${data.get("package")}\nServices: ${selected}\nBudget: ${data.get("budget")}\n\nProject details:\n${data.get("message")}\n\nLooking forward to connecting!`;
     window.location.href = `mailto:${agency.email}?subject=${encodeURIComponent(`New project enquiry — ${data.get("name")}`)}&body=${encodeURIComponent(body)}`;
     setPrepared(true);
   }
@@ -30,7 +30,8 @@ function ProjectDialog({ dialogRef }: { dialogRef: React.RefObject<HTMLDialogEle
       <form onSubmit={submit}>
         <div className="form-grid"><label>Your name <span>*</span><input name="name" autoComplete="name" required placeholder="Alex Smith" maxLength={100} /></label><label>Email address <span>*</span><input name="email" type="email" autoComplete="email" required placeholder="alex@company.com" maxLength={254} /></label></div>
         <label>Company<input name="company" autoComplete="organization" placeholder="Your company or brand" maxLength={150} /></label>
-        <fieldset><legend>Design &amp; digital</legend><div className="service-options">{services.map(service => <label key={service.short}><input type="checkbox" name="services" value={service.short} /><span>{service.short}</span></label>)}</div></fieldset>
+        <label>Package<select name="package" defaultValue="Help me choose"><option>Help me choose</option><option>Website Build</option><option>AI Integration</option><option>Full AI Integration</option></select></label>
+        <fieldset><legend>What we do</legend><div className="service-options">{services.map(service => <label key={service.short}><input type="checkbox" name="services" value={service.short} /><span>{service.short}</span></label>)}</div></fieldset>
         <fieldset><legend>Enquiries &amp; business growth</legend><div className="service-options">{growthServices.map(service => <label key={service.short}><input type="checkbox" name="services" value={service.short} /><span>{service.short}</span></label>)}</div></fieldset>
         <label>Project budget<select name="budget" defaultValue="Let's discuss"><option>Let&apos;s discuss</option><option>Under R15,000</option><option>R15,000–R30,000</option><option>R30,000–R60,000</option><option>R60,000+</option></select></label>
         <label>A little about your project <span>*</span><textarea name="message" required rows={3} placeholder="The idea, the ambition, the thing keeping you up at night…" maxLength={3000} /></label>
@@ -52,7 +53,7 @@ function Navigation() {
     document.addEventListener("keydown", close);
     return () => document.removeEventListener("keydown", close);
   }, [open]);
-  const links = [["Work", "work"], ["About", "about"], ["Services", "services"], ["Journal", "journal"]];
+  const links = [["Work", "work"], ["About", "about"], ["What we do", "services"], ["Journal", "journal"]];
   return <header className="site-header"><div className="nav-wrap">
     <Link href="/" className="wordmark" aria-label="Concrete Agency home" onClick={() => setOpen(false)}><Mark /><span>concrete<span className="wordmark-sub">AGENCY</span></span></Link>
     <nav aria-label="Main navigation" className="desktop-nav">{links.map(([label, anchor]) => <a key={anchor} href={`${pathname === "/" ? "" : "/"}#${anchor}`}>{label}<span className="nav-dot" /></a>)}</nav>
@@ -62,10 +63,14 @@ function Navigation() {
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  const open = (service?: string) => {
+  const open = (service?: string, packageName?: string) => {
     if (service) {
       const inputs = dialog.current?.querySelectorAll<HTMLInputElement>('input[name="services"]');
       inputs?.forEach(input => { if (input.value === service) input.checked = true; });
+    }
+    if (packageName) {
+      const packageSelect = dialog.current?.querySelector<HTMLSelectElement>('select[name="package"]');
+      if (packageSelect) packageSelect.value = packageName;
     }
     dialog.current?.showModal();
     document.body.style.overflow = "hidden";
