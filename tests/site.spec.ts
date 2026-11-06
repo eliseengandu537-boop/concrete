@@ -11,9 +11,11 @@ test("desktop renders the glass showcases, images load, and layout stays within 
   await expect(page.locator(".hero-showcase .showcase-item")).toHaveCount(3);
   await expect(page.locator(".showcase-growth")).toContainText("From first click to enquiry.");
   await expect.poll(() => page.locator(".hero-showcase img").evaluateAll(images => images.length > 0 && images.every(img => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0))).toBeTruthy();
-  await expect(page.locator(".project-card")).toHaveCount(4);
-  await page.locator("#work").scrollIntoViewIfNeeded();
-  await expect.poll(() => page.locator(".project-image img").evaluateAll(images => images.every(img => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0))).toBeTruthy();
+  await expect(page.locator(".project-card")).toHaveCount(8);
+  for (const preview of await page.locator(".work-grid .project-image img").all()) {
+    await preview.scrollIntoViewIfNeeded();
+    await expect.poll(() => preview.evaluate(img => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0)).toBeTruthy();
+  }
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: "test-results/desktop-hero.png" });
   await page.screenshot({ path: "test-results/desktop.png", fullPage: true });
@@ -57,16 +59,26 @@ test("hero enquiries and preview links work while background motion pauses offsc
 test("portfolio filtering and keyboard-accessible project details", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Business", exact: true }).click();
-  await expect(page.locator(".project-card")).toHaveCount(2);
-  await page.getByRole("button", { name: "View Routed project" }).click();
+  await expect(page.locator(".project-card")).toHaveCount(6);
+  await page.getByRole("button", { name: "View DG Property project" }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await expect(page.getByRole("dialog").getByRole("heading", { name: "Routed", exact: true })).toBeVisible();
+  await expect(page.getByRole("dialog").getByRole("heading", { name: "DG Property", exact: true })).toBeVisible();
+  await expect(page.getByRole("dialog").getByRole("link", { name: /Visit website/ })).toHaveAttribute("href", "https://dg-property.co.za/");
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).not.toBeVisible();
-  await expect(page.getByRole("button", { name: "View Routed project" })).toBeFocused();
-  await page.getByRole("button", { name: "Lifestyle", exact: true }).click();
+  await expect(page.getByRole("button", { name: "View DG Property project" })).toBeFocused();
+  await page.getByRole("button", { name: "Community & creative", exact: true }).click();
   await expect(page.locator(".project-card")).toHaveCount(2);
-  await expect(page.getByRole("button", { name: "View NutriFlow project" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "View Lens Photo Studio project" })).toBeVisible();
+  await page.getByRole("button", { name: /All work/ }).click();
+  await expect(page.locator(".work-count")).toHaveText("08 PROJECTS");
+  const destinations = await page.locator(".project-site-link").evaluateAll(links => links.map(link => ({ href: link.getAttribute("href"), target: link.getAttribute("target"), rel: link.getAttribute("rel") })));
+  expect(destinations.map(link => link.href)).toEqual([
+    "https://dg-property.co.za/", "https://micrologistics.co.za/", "https://newlifeunited.co.za/", "https://thunderbrothers.co.za/",
+    "https://www.datawarehouse.ctcpm.cd/", "https://lensphotostudio.co.za/", "https://www.dcbspares.co.za/", "https://www.fedpump.com/",
+  ]);
+  expect(destinations.every(link => link.target === "_blank" && link.rel?.includes("noopener"))).toBeTruthy();
+  await expect(page.locator("#work")).not.toContainText(/Routed|Rage Festival|10-Four|NutriFlow/);
 });
 
 test("services expose their content and form validates required fields", async ({ page }) => {

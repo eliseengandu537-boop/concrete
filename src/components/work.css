@@ -1,0 +1,50 @@
+.portfolio-section .work-toolbar{gap:14px;flex-wrap:wrap}
+.portfolio-section .work-filters{flex-wrap:wrap}
+.portfolio-section .project-image{aspect-ratio:1.27;background:radial-gradient(ellipse at 50% 34%,#47c4e92b,transparent 65%),linear-gradient(145deg,color-mix(in srgb,var(--project-tone) 14%,#133e50),#061d2d);border:1px solid #a7e2f52b;border-radius:14px}
+.laptop-stage{isolation:isolate;perspective:1200px;container-type:inline-size;--laptop-tilt:-4deg;--tablet-tilt:5deg;--phone-tilt:-6deg}
+.laptop-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,#ffffff07,transparent 48%);pointer-events:none}
+.laptop-floor{position:absolute;bottom:12%;left:8%;width:84%;height:9%;border-radius:50%;background:#0009;filter:blur(13px)}
+.laptop-device{position:absolute;z-index:1;width:78%;left:1%;bottom:22%;transform:rotate(var(--laptop-tilt));transition:transform .65s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 15px 17px #0005)}
+.laptop-lid{position:relative;width:88%;margin:auto;padding:2.3% 1.2% 1.1%;border:1px solid #9bb1bd;border-radius:clamp(7px,1.2vw,15px) clamp(7px,1.2vw,15px) 3px 3px;background:linear-gradient(135deg,#313940,#0a0e13 25%,#222b31 80%,#4a5860);box-shadow:inset 0 0 0 1px #04070a,0 0 0 1px #0008}
+.laptop-camera{position:absolute;top:1.7%;left:calc(50% - 2px);width:4px;height:4px;border-radius:50%;background:#102b3a;box-shadow:inset 0 0 0 1px #5a6c7659}
+.laptop-display{overflow:hidden;border-radius:2px;background:#0a1520;border:1px solid #000}
+.project-browser-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:1.5% 2.5%;background:#e9eef1;color:#475661;font-family:var(--font-body);font-size:clamp(5px,.53vw,8px);line-height:1.2}
+.project-browser-bar>span:nth-child(2){overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.project-browser-dots{display:flex;gap:3px;flex:none}
+.project-browser-dots i{width:3px;height:3px;background:#8b9aa7;border-radius:50%}
+.project-browser-lock{width:9px;font-size:9px;line-height:.6;flex:none}
+.laptop-screen{aspect-ratio:16/10;overflow:hidden;background:#fff}
+.portfolio-section .laptop-screen img,.portfolio-section .tablet-screen img,.portfolio-section .phone-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transform:none}
+.laptop-chin{display:block;height:3px;margin-top:1%}
+.laptop-base{position:relative;z-index:1;width:100%;height:clamp(6px,.8vw,11px);background:linear-gradient(90deg,#6a7d8b,#d3dfe7 4%,#acbdc9 15%,#e5edf3 50%,#afbfca 85%,#dae4eb 96%,#6c818e);border-radius:2px 2px 0 0;box-shadow:inset 0 1px 0 #fff9}
+.laptop-base>span{display:block;width:15%;height:55%;margin:auto;border-radius:0 0 6px 6px;background:linear-gradient(#687f8d,#a7bac7);box-shadow:0 1px 0 #ffffff7a}
+.laptop-edge{height:clamp(3px,.5vw,6px);background:linear-gradient(90deg,#3b4e5a,#899eac 20%,#bac9d3 50%,#8ca2af 80%,#3b4e5a);border-radius:0 0 50% 50% / 0 0 100% 100%;box-shadow:0 2px 2px #0006}
+.tablet-device,.phone-device{position:absolute;border:1px solid #98a9b4;background:linear-gradient(130deg,#34424d,#080f16 35%,#202d37);box-shadow:inset 0 0 0 1px #000b,5px 13px 18px #0006;transition:transform .65s cubic-bezier(.2,.7,.2,1);will-change:auto}
+.tablet-device{z-index:2;width:28%;right:4%;bottom:20%;padding:1.1cqw .85cqw 1.25cqw;border-radius:1.7cqw;transform:rotate(var(--tablet-tilt))}
+.tablet-screen{aspect-ratio:820/1100;overflow:hidden;border-radius:1cqw;background:#fff}
+.tablet-camera{position:absolute;top:.4cqw;left:calc(50% - 1px);width:2px;height:2px;background:#477186;border-radius:50%}
+.phone-device{z-index:3;width:16%;right:21%;bottom:11%;padding:1.3cqw .5cqw 1.1cqw;border-radius:2cqw;transform:rotate(var(--phone-tilt))}
+.phone-screen{aspect-ratio:390/844;overflow:hidden;border-radius:1.2cqw;background:#fff}
+.phone-camera{position:absolute;top:.45cqw;left:37%;width:26%;height:.45cqw;border-radius:6px;background:#020509;box-shadow:inset -.45cqw 0 0 #253c4a}
+.phone-side-button{position:absolute;right:-2px;top:26%;width:2px;height:13%;border-radius:0 2px 2px 0;background:#728a99}
+.device-home-bar{position:absolute;bottom:.4cqw;left:34%;width:32%;height:1px;background:#9eacb7;border-radius:2px;opacity:.7}
+.phone-device .device-home-bar{height:2px;bottom:.4cqw}
+.work-grid>div:nth-child(even) .device-stage{--laptop-tilt:-2deg;--tablet-tilt:6deg;--phone-tilt:-4deg}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.portfolio-section .project-card:hover .laptop-device{transform:translateY(-2%) rotate(calc(var(--laptop-tilt) + 1deg))}.portfolio-section .project-card:hover .tablet-device{transform:translate(2%,-3%) rotate(calc(var(--tablet-tilt) - 2deg))}.portfolio-section .project-card:hover .phone-device{transform:translateY(-5%) rotate(calc(var(--phone-tilt) + 2deg))}}
+.portfolio-section .project-info{align-items:flex-start;gap:16px}
+.portfolio-section .project-info h3{line-height:1.2;overflow-wrap:anywhere}
+.portfolio-section .project-arrow{flex-shrink:0}
+.project-site-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;color:var(--cyan);min-height:44px;margin-top:3px;text-underline-offset:4px}
+.project-site-link:hover{text-decoration:underline}
+.project-site-link svg{width:13px;height:13px;transition:transform .25s}
+.project-site-link:hover svg{transform:translate(2px,-2px)}
+.portfolio-section .case-inner>.laptop-stage{aspect-ratio:1.45;border-radius:0;border:0}
+.case-inner .laptop-device{bottom:18%}
+.case-inner .tablet-device{bottom:17%}
+.case-inner .phone-device{bottom:7%}
+.case-inner .laptop-floor{bottom:7%}
+.case-inner .project-browser-bar{font-size:8px}
+.case-inner .close-button{z-index:4}
+.showcase-project img{object-position:top center!important}
+@media(max-width:600px){.portfolio-section .work-toolbar{gap:12px}.portfolio-section .work-filters{gap:0}.portfolio-section .work-filters button{font-size:10px;padding:10px}.portfolio-section .work-count{margin-left:10px}.portfolio-section .project-info h3{font-size:23px}.project-site-link{font-size:11px}.project-browser-bar,.case-inner .project-browser-bar{font-size:4px}.project-browser-dots{gap:2px}.project-browser-dots i{width:2px;height:2px}.laptop-camera{width:3px;height:3px}.laptop-floor{filter:blur(9px)}.portfolio-section .case-inner>.laptop-stage{aspect-ratio:1.25}.case-inner .laptop-device{bottom:22%}.case-inner .tablet-device{bottom:20%}.case-inner .phone-device{bottom:11%}.case-inner .laptop-floor{bottom:12%}}
+@media(prefers-reduced-motion:reduce){.project-site-link:hover svg{transform:none}}

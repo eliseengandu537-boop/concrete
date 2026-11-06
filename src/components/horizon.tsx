@@ -9,7 +9,11 @@ export function Horizon() {
     if (!element) return;
     let inView = true;
     const update = () => { element.dataset.active = String(inView && !document.hidden); };
-    const observer = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; update(); });
+    const observer = new IntersectionObserver(entries => {
+      // Fast section jumps can queue multiple changes for the same element.
+      for (const entry of entries) inView = entry.isIntersecting;
+      update();
+    });
     observer.observe(element);
     document.addEventListener("visibilitychange", update);
     return () => { observer.disconnect(); document.removeEventListener("visibilitychange", update); };

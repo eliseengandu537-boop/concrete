@@ -1,14 +1,12 @@
 import Image from "next/image";
+import { projects } from "@/lib/content";
 
 function ShowcaseArrow() {
   return <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 
-const portfolio = [
-  { name: "Routed", image: "/images/routed.webp", number: "01" },
-  { name: "Rage Festival", image: "/images/rage.webp", number: "02" },
-  { name: "NutriFlow", image: "/images/nutriflow.webp", number: "03" },
-];
+const portfolio = projects.slice(0, 3);
+const digitalProject = projects.find(project => project.id === "dcb-spares")!;
 
 export function HeroShowcase() {
   return <div className="hero-showcase" aria-label="Explore what Concrete Agency creates">
@@ -16,9 +14,9 @@ export function HeroShowcase() {
       <div className="showcase-label"><span><i />01 / SELECTED WORK</span><ShowcaseArrow /></div>
       <div className="showcase-panel">
         <div className="showcase-panel-heading"><span>Ideas, made real.</span><span className="showcase-window-dots" aria-hidden="true"><i /><i /><i /></span></div>
-        <div className="showcase-gallery">{portfolio.map(project => <div className="showcase-project" key={project.name}>
+        <div className="showcase-gallery">{portfolio.map((project, index) => <div className="showcase-project" key={project.name}>
           <Image src={project.image} alt="" width={220} height={260} sizes="(max-width: 600px) 28vw, 120px" />
-          <span className="showcase-project-number">{project.number}</span>
+          <span className="showcase-project-number">{String(index + 1).padStart(2, "0")}</span>
           <span className="showcase-project-name">{project.name}</span>
         </div>)}</div>
         <div className="showcase-panel-footer"><span>Different brands. A shared ambition.</span><span className="showcase-plus" aria-hidden="true">+</span></div>
@@ -44,7 +42,7 @@ export function HeroShowcase() {
         <div className="showcase-panel-heading"><span>Made to stand out.</span><span className="showcase-size-label">EVERY SCREEN ↗</span></div>
         <div className="showcase-screens" aria-hidden="true">
           <div className="showcase-browser showcase-browser-back"><div className="showcase-browser-bar"><span /><span /><span /></div><div className="showcase-browser-abstract"><span>Form.<br /><em>Feeling.</em></span><i /></div></div>
-          <div className="showcase-browser showcase-browser-front"><div className="showcase-browser-bar"><span /><span /><span /><i>10-four.co.za</i></div><Image src="/images/10-four.webp" alt="" width={420} height={280} sizes="(max-width: 600px) 70vw, 300px" /></div>
+          <div className="showcase-browser showcase-browser-front"><div className="showcase-browser-bar"><span /><span /><span /><i>{new URL(digitalProject.url).hostname.replace(/^www\./, "")}</i></div><Image src={digitalProject.image} alt="" width={420} height={280} sizes="(max-width: 600px) 70vw, 300px" /></div>
           <div className="showcase-mobile"><div className="showcase-mobile-speaker" /><span>Big<br /><em>ideas.</em></span><div className="showcase-mobile-orb" /><i /></div>
         </div>
         <div className="showcase-panel-footer"><span>Considered design. Seamless development.</span><span className="showcase-plus" aria-hidden="true">+</span></div>

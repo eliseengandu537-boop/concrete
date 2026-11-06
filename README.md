@@ -36,7 +36,7 @@ Browser checks use an installed Google Chrome. They cover responsive rendering, 
 - `src/app/editorial-theme.css`: the shared ocean-blue, cyan, and icy-glass design system.
 - `public/fonts`: self-hosted Cormorant Garamond normal/italic and its SIL Open Font License.
 - `src/lib/content.ts`: agency contact information, service descriptions, projects, and journal content.
-- `public/images`: locally served portfolio images retained from the reference.
+- `public/images/projects`: compressed homepage previews of the eight supplied portfolio websites.
 - `.openai/hosting.json`: private Sites project identity and static deployment configuration.
 
 ## Design and behaviour
@@ -55,6 +55,10 @@ The enquiry form validates the visitor's details and opens an email draft addres
 
 ## Reference assets
 
-The following project names and images were retained from the user-supplied reference at https://digitalfold.co.za/ as part of the requested rebuild/rebrand: Routed, Rage Festival, 10-Four, and NutriFlow. The site introduces no invented client testimonials or performance statistics. The journal articles and general agency copy were written for this build. The geometric brand mark and journal illustrations are original SVG/CSS assets.
+The demo projects have been replaced with the eight websites supplied for the Work section: [DG Property](https://dg-property.co.za/), [MicroLogistics](https://micrologistics.co.za/), [Newlife United](https://newlifeunited.co.za/), [Thunder Brothers](https://thunderbrothers.co.za/), [CTCPM Data Warehouse](https://www.datawarehouse.ctcpm.cd/), [Lens Photo Studio](https://lensphotostudio.co.za/), [DCB Spares](https://www.dcbspares.co.za/), and [Fedpump CC](https://www.fedpump.com/). Previews are locally served WebP screenshots of their public homepages, captured on 6 November 2026. Descriptions explain the websites’ visible subjects and features without inventing results, testimonials, or project responsibilities. Each card and project dialog offers a direct link to the relevant website. Hero previews use the same portfolio data.
+
+The Work cards and project dialogs display each website in a layered laptop, tablet, and phone composition. Tablet and phone screens use separate captures at 820 × 1100 and 390 × 844 rather than crops of the desktop screenshot. The CSS device frames use graphite edges, a metallic laptop base, soft shadows, and restrained hover motion. The composition scales to small screens and respects reduced-motion preferences.
+
+The journal articles and general agency copy were written for this build. The geometric brand mark and journal illustrations are original SVG/CSS assets.
 
 The parent directory's `demo.html` and `AGENTS.md` have been preserved.
