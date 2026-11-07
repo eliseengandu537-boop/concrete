@@ -1,46 +1,16 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { agency, services, growthServices } from "@/lib/content";
+import { agency } from "@/lib/content";
 import { Arrow, Mark } from "./ui";
+import { ProjectDialog } from "./project-dialog";
 
 const ProjectContext = createContext<(service?: string, packageName?: string) => void>(() => {});
 export function ProjectButton({ children = "Start a project", className = "button button-lime", arrow = true, service, packageName }: { children?: ReactNode; className?: string; arrow?: boolean; service?: string; packageName?: string }) {
   const open = useContext(ProjectContext);
   return <button className={className} onClick={() => open(service, packageName)}>{children}{arrow && <span className="button-icon"><Arrow diagonal /></span>}</button>;
-}
-
-function ProjectDialog({ dialogRef }: { dialogRef: React.RefObject<HTMLDialogElement | null> }) {
-  const [prepared, setPrepared] = useState(false);
-  function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const selected = data.getAll("services").join(", ") || "I'd like your guidance";
-    const body = `Hello Concrete Agency,\n\nI'd love to discuss a project.\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company") || "Not specified"}\nPackage: ${data.get("package")}\nServices: ${selected}\nBudget: ${data.get("budget")}\n\nProject details:\n${data.get("message")}\n\nLooking forward to connecting!`;
-    window.location.href = `mailto:${agency.email}?subject=${encodeURIComponent(`New project enquiry — ${data.get("name")}`)}&body=${encodeURIComponent(body)}`;
-    setPrepared(true);
-  }
-  return <dialog ref={dialogRef} className="project-dialog" aria-labelledby="project-title" onClose={() => { document.body.style.overflow = ""; setPrepared(false); }} onClick={event => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}>
-    <div className="dialog-inner"><button className="close-button" aria-label="Close project form" onClick={() => dialogRef.current?.close()}>×</button>
-      <div className="eyebrow">GOOD THINGS START WITH A CONVERSATION</div>
-      <h2 id="project-title">Make it<br /><span>concrete.</span></h2>
-      <p className="dialog-description">Tell us what you have in mind. Big ideas, small details — we’re all ears.</p>
-      <form onSubmit={submit}>
-        <div className="form-grid"><label>Your name <span>*</span><input name="name" autoComplete="name" required placeholder="Alex Smith" maxLength={100} /></label><label>Email address <span>*</span><input name="email" type="email" autoComplete="email" required placeholder="alex@company.com" maxLength={254} /></label></div>
-        <label>Company<input name="company" autoComplete="organization" placeholder="Your company or brand" maxLength={150} /></label>
-        <label>Package<select name="package" defaultValue="Help me choose"><option>Help me choose</option><option>Website Build</option><option>AI Integration</option><option>Full AI Integration</option></select></label>
-        <fieldset><legend>What we do</legend><div className="service-options">{services.map(service => <label key={service.short}><input type="checkbox" name="services" value={service.short} /><span>{service.short}</span></label>)}</div></fieldset>
-        <fieldset><legend>Enquiries &amp; business growth</legend><div className="service-options">{growthServices.map(service => <label key={service.short}><input type="checkbox" name="services" value={service.short} /><span>{service.short}</span></label>)}</div></fieldset>
-        <label>Project budget<select name="budget" defaultValue="Let's discuss"><option>Let&apos;s discuss</option><option>Under R15,000</option><option>R15,000–R30,000</option><option>R30,000–R60,000</option><option>R60,000+</option></select></label>
-        <label>A little about your project <span>*</span><textarea name="message" required rows={3} placeholder="The idea, the ambition, the thing keeping you up at night…" maxLength={3000} /></label>
-        <p className="form-note">This opens a draft in your email app, ready for you to review and send to {agency.email}. <Link href="/privacy/" onClick={() => dialogRef.current?.close()}>Privacy notice</Link>.</p>
-        <button type="submit" className="button button-lime">Prepare my enquiry<span className="button-icon"><Arrow diagonal /></span></button>
-        {prepared && <p className="form-status" role="status">Your email draft is ready. Send it from your email app to finish your enquiry. If your app didn’t open, email <a href={`mailto:${agency.email}`}>{agency.email}</a> directly.</p>}
-      </form>
-    </div>
-  </dialog>;
 }
 
 function Navigation() {

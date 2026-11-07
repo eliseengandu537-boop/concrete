@@ -90,7 +90,7 @@ test("services expose their content and form validates required fields", async (
   await expect(page.locator("#service-panel-0")).toBeVisible();
   await page.locator(".button-nav").click();
   await expect(page.getByRole("dialog", { name: /Make it/ })).toBeVisible();
-  await page.getByRole("button", { name: "Prepare my enquiry" }).click();
+  await page.getByRole("button", { name: "Send message", exact: true }).click();
   await expect(page.getByLabel("Your name")).toBeFocused();
   await page.getByLabel("Your name").fill("Alex Example");
   await page.getByLabel("Email address").fill("alex@example.com");

@@ -51,7 +51,11 @@ Headings now use the motion style requested from FedPump: words rise from clippe
 
 The horizon uses CSS and SVG, pauses when off-screen or the tab is hidden, and becomes static with reduced motion. Small screens and touch devices use a static blue glass background without full-height blur layers. Their header and dialog backdrops also avoid live blur while scrolling. It requires no WebGL or extra animation dependency. Fonts and imagery are self-hosted, and no third-party analytics are installed.
 
-The enquiry form validates the visitor's details and opens an email draft addressed to `eliseeweb@gmail.com`. The visitor reviews and sends the draft in their email application. The site does not claim to send or store enquiries itself.
+The enquiry form submits through FormSubmit while the visitor stays on the website. It sends the name, email, company, package, selected services, budget, and message; the visitor's email is used for Reply-To. A thank-you screen appears only after the provider returns a successful response. Pending requests disable duplicate submissions, and unsuccessful requests preserve the visitor's details for retry.
+
+No account, API key, or email password is stored in the website. FormSubmit sends a one-time activation email to `eliseeweb@gmail.com` when the receiving form has not been verified. The owner must confirm that email before normal delivery. Activation responses are treated as unsuccessful submissions in the interface. Do not release the form until the receiving address and an actual delivery have been verified.
+
+The enquiry browser tests intercept the provider request and never send real email. Coverage includes complete payloads, duplicate prevention, confirmation focus, mobile accessibility, and retries after network, provider, activation, and malformed-response failures. A passing mocked test does not verify real email delivery.
 
 ## Reference assets
 

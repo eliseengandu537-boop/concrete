@@ -1,0 +1,171 @@
+/* Inline enquiry feedback follows the dialog's icy-blue visual language. */
+.enquiry-honeypot { display:none; }
+.enquiry-form .enquiry-fields {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.enquiry-fields > label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.enquiry-fields:disabled input,
+.enquiry-fields:disabled select,
+.enquiry-fields:disabled textarea,
+.enquiry-fields:disabled .service-options label {
+  cursor: wait;
+}
+
+.enquiry-error {
+  margin: 0 0 20px;
+  padding: 15px 17px;
+  border: 1px solid #dcafb3;
+  border-left: 3px solid #ac414c;
+  border-radius: 9px;
+  background: #fff0f0;
+  color: #852d38;
+  font-size: 12px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.enquiry-error a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.enquiry-submit {
+  min-width: 203px;
+  min-height: 54px;
+}
+
+.enquiry-submit:disabled,
+.enquiry-submit:disabled:hover {
+  cursor: wait;
+  color: #234c61;
+  background: #d6ebf3;
+  box-shadow: none;
+  transform: none;
+}
+
+.enquiry-submit:disabled .button-icon {
+  transform: none;
+}
+
+.enquiry-spinner {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  border: 2px solid #597e913d;
+  border-top-color: #0b526e;
+  border-radius: 50%;
+  animation: enquiry-spin .8s linear infinite;
+}
+
+@keyframes enquiry-spin {
+  to { transform: rotate(360deg); }
+}
+
+.enquiry-confirmation {
+  border-radius: 12px;
+  padding-block: 9px 3px;
+}
+
+.enquiry-confirmation:focus-visible {
+  outline: 3px solid #0477b2;
+  outline-offset: 10px;
+}
+
+.enquiry-confirmation-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 0 27px;
+  border: 1px solid #7dcddd;
+  border-radius: 50%;
+  color: #075a75;
+  background: linear-gradient(140deg, #effdff, #bceef6);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 6px #dff4f9;
+}
+
+.enquiry-confirmation-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.enquiry-confirmation > .eyebrow {
+  margin-bottom: 16px;
+  color: #23637c;
+  font-size: 9px;
+  letter-spacing: .13em;
+}
+
+.enquiry-confirmation h2 {
+  padding-right: 12px;
+  text-wrap: balance;
+}
+
+.enquiry-confirmation > p {
+  max-width: 440px;
+  margin-top: 20px;
+  color: #426174;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.enquiry-success-email {
+  color: #075a75;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.enquiry-confirmation-note {
+  margin-top: 25px;
+  padding: 19px 20px;
+  border: 1px solid #c1dfe8;
+  border-radius: 11px;
+  background: #e8f5fa;
+}
+
+.enquiry-confirmation-note > strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #174c63;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.enquiry-confirmation-note > p {
+  color: #426174;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.enquiry-confirmation > .button {
+  margin-top: 28px;
+}
+
+@media (max-width: 600px) {
+  .enquiry-error { padding: 13px 14px; font-size: 11px; }
+  .enquiry-submit { width: 100%; }
+  .enquiry-confirmation { padding-top: 5px; }
+  .enquiry-confirmation-icon { width: 56px; height: 56px; margin-bottom: 24px; }
+  .enquiry-confirmation-icon svg { width: 25px; height: 25px; }
+  .enquiry-confirmation > p { font-size: 13px; }
+  .enquiry-confirmation-note { padding: 16px; }
+  .enquiry-confirmation > .button { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enquiry-spinner { animation: none; }
+}

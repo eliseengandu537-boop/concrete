@@ -11,6 +11,7 @@ import "@/components/hero-showcase.css";
 import "@/components/services-overview.css";
 import "@/components/work.css";
 import "./mobile-performance.css";
+import "@/components/project-dialog.css";
 import { SiteShell } from "@/components/site-shell";
 import { agency } from "@/lib/content";
 
