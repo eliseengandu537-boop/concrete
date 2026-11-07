@@ -11,8 +11,11 @@ type LaptopPreviewProps = {
 export function LaptopPreview({ name, image, url, color }: LaptopPreviewProps) {
   const mobileImage = image.replace(/\.webp$/, "-mobile.webp");
   const tabletImage = image.replace(/\.webp$/, "-tablet.webp");
+  const deviceImage = image.replace(/\.webp$/, "-devices.webp");
 
   return <div className="project-image laptop-stage device-stage" style={{ "--project-tone": color } as CSSProperties}>
+    <Image className="device-flat" src={deviceImage} alt={`${name} website shown on a laptop, tablet, and phone`} width={800} height={630} sizes="(max-width: 600px) 92vw, 800px" loading="lazy" />
+    <div className="device-live">
     <div className="laptop-floor" aria-hidden="true" />
     <div className="laptop-device">
       <div className="laptop-lid">
@@ -36,6 +39,7 @@ export function LaptopPreview({ name, image, url, color }: LaptopPreviewProps) {
       <div className="phone-screen"><Image src={mobileImage} alt={`${name} website on a phone`} width={390} height={844} sizes="(max-width: 600px) 15vw, 130px" loading="lazy" /></div>
       <span className="phone-camera" aria-hidden="true" />
       <span className="device-home-bar" aria-hidden="true" />
+    </div>
     </div>
   </div>;
 }

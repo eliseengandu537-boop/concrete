@@ -1,0 +1,45 @@
+/* Touch devices use one pre-rendered surface per mockup, avoiding nested
+   rotated/filter layers that can corrupt during Android scrolling. */
+@media (max-width:800px), (pointer:coarse) {
+  .portfolio-section .device-stage {
+    aspect-ratio:1.27;
+    background:#123748;
+    border:0;
+    perspective:none;
+    container-type:normal;
+    isolation:auto;
+  }
+  .device-stage::before,.device-stage::after,.device-live { display:none; }
+  .portfolio-section .device-flat {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:none;
+    transition:none;
+  }
+  .portfolio-section .case-inner>.device-stage { aspect-ratio:1.27; }
+  .work-grid>.project-reveal {
+    opacity:1!important;
+    transform:none!important;
+    will-change:auto!important;
+  }
+
+  /* A fixed blur samples the whole page as it scrolls behind the header. */
+  .site-header {
+    background:#064b67;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+  dialog::backdrop,.hero-orb,.showcase-panel {
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+  .hero-showcase { perspective:none; }
+
+  /* Keep the blue glass art direction without full-height animated blur layers. */
+  .horizon-lightfield { animation:none; inset:0; }
+  .horizon-blue-glow,.horizon-cyan-glow { filter:none; }
+  .horizon-core,.horizon-filaments,.horizon-grain { display:none; }
+  .horizon-flutes { mix-blend-mode:normal; opacity:.65; }
+}

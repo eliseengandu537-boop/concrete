@@ -1,7 +1,9 @@
 .portfolio-section .work-toolbar{gap:14px;flex-wrap:wrap}
 .portfolio-section .work-filters{flex-wrap:wrap}
 .portfolio-section .project-image{aspect-ratio:1.27;background:radial-gradient(ellipse at 50% 34%,#47c4e92b,transparent 65%),linear-gradient(145deg,color-mix(in srgb,var(--project-tone) 14%,#133e50),#061d2d);border:1px solid #a7e2f52b;border-radius:14px}
-.laptop-stage{isolation:isolate;perspective:1200px;container-type:inline-size;--laptop-tilt:-4deg;--tablet-tilt:5deg;--phone-tilt:-6deg}
+.laptop-stage{isolation:isolate;container-type:inline-size;--laptop-tilt:-4deg;--tablet-tilt:5deg;--phone-tilt:-6deg}
+.device-flat{display:none}
+.device-live{display:contents}
 .laptop-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,#ffffff07,transparent 48%);pointer-events:none}
 .laptop-floor{position:absolute;bottom:12%;left:8%;width:84%;height:9%;border-radius:50%;background:#0009;filter:blur(13px)}
 .laptop-device{position:absolute;z-index:1;width:78%;left:1%;bottom:22%;transform:rotate(var(--laptop-tilt));transition:transform .65s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 15px 17px #0005)}

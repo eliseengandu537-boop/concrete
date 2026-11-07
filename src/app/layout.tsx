@@ -10,6 +10,7 @@ import "@/components/hero.css";
 import "@/components/hero-showcase.css";
 import "@/components/services-overview.css";
 import "@/components/work.css";
+import "./mobile-performance.css";
 import { SiteShell } from "@/components/site-shell";
 import { agency } from "@/lib/content";
 

@@ -12,7 +12,7 @@ test("desktop renders the glass showcases, images load, and layout stays within 
   await expect(page.locator(".showcase-growth")).toContainText("From first click to enquiry.");
   await expect.poll(() => page.locator(".hero-showcase img").evaluateAll(images => images.length > 0 && images.every(img => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0))).toBeTruthy();
   await expect(page.locator(".project-card")).toHaveCount(8);
-  for (const preview of await page.locator(".work-grid .project-image img").all()) {
+  for (const preview of await page.locator(".work-grid .project-image img:visible").all()) {
     await preview.scrollIntoViewIfNeeded();
     await expect.poll(() => preview.evaluate(img => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0)).toBeTruthy();
   }

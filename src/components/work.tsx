@@ -16,7 +16,7 @@ export function Work() {
   return <section id="work" className="work-section portfolio-section light-section section-space" aria-labelledby="work-heading"><div className="container">
     <div><SectionLabel number="01">SELECTED WORK</SectionLabel><div className="section-heading-row"><WordReveal id="work-heading">Less ordinary.<br /><span className="muted-heading">More memorable.</span></WordReveal><div className="section-intro"><p>Different ambitions. One shared standard.<br />Work that looks good — and means something.</p><span className="small-note">A SELECTION OF DIGITAL EXPERIENCES</span></div></div></div>
     <div className="work-toolbar"><div className="work-filters" role="group" aria-label="Filter projects">{filters.map(item => <button key={item} aria-pressed={filter === item} className={filter === item ? "active" : ""} onClick={() => setFilter(item)}>{item}{item === "All work" && <sup>{String(projects.length).padStart(2, "0")}</sup>}</button>)}</div><span className="work-count" aria-live="polite">{String(visible.length).padStart(2, "0")} PROJECTS</span></div>
-    <div className="work-grid">{visible.map((project, index) => <Reveal key={project.id} delay={index % 2 * 0.08}>
+    <div className="work-grid">{visible.map((project, index) => <Reveal key={project.id} className="project-reveal" delay={index % 2 * 0.08}>
       <article className="portfolio-entry">
         <button className="project-card" aria-label={`View ${project.name} project`} onClick={() => { setSelected(project); dialog.current?.showModal(); document.body.style.overflow = "hidden"; }}>
           <LaptopPreview {...project} />
