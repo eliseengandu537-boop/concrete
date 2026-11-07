@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
-    "start": "node scripts/serve.mjs",
+    "start": "next start --hostname 127.0.0.1 --port 3030",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test"
@@ -15,6 +15,7 @@
     "@fontsource-variable/manrope": "^5.2.8",
     "motion": "^14.6.0",
     "next": "16.4.2",
+    "nodemailer": "^10.3.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "three": "^0.186.1"
@@ -24,6 +25,7 @@
     "@playwright/test": "^1.58.0",
     "@tailwindcss/postcss": "^4.1.0",
     "@types/node": "^24.0.0",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/three": "^0.183.0",

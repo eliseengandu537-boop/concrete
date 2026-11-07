@@ -1,7 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-const endpoint = "https://formsubmit.co/ajax/eliseeweb@gmail.com";
+const endpoint = "**/api/enquiry/";
 
 async function fillEnquiry(page: Page) {
   await page.goto("/");
@@ -25,7 +25,7 @@ test("enquiry sends every field once, then thanks the visitor without navigating
     submissions++;
     payload = route.request().postDataJSON();
     await accepted;
-    await route.fulfill({ json: { success: "true", message: "Form submitted successfully." } });
+    await route.fulfill({ json: { success: true } });
   });
   await fillEnquiry(page);
   const originalUrl = page.url();
@@ -39,7 +39,7 @@ test("enquiry sends every field once, then thanks the visitor without navigating
   expect(payload).toMatchObject({
     name: "Alex Example", email: "alex@example.com", company: "Example Studio",
     package: "Full AI Integration", services: "Website build, Smart enquiry forms", budget: "R30,000–R60,000",
-    message: "We need a new website and a connected enquiry process.", _subject: "New project enquiry | Concrete Agency", _template: "table", _honey: "",
+    message: "We need a new website and a connected enquiry process.", botcheck: "",
   });
   expect(payload).not.toHaveProperty("access_key");
   expect(payload).not.toHaveProperty("redirect");
@@ -60,7 +60,7 @@ test("enquiry sends every field once, then thanks the visitor without navigating
   await expect(page.getByRole("checkbox", { name: "Website build", exact: true })).not.toBeChecked();
 });
 
-for (const failure of ["provider", "activation", "network", "invalid-response"] as const) {
+for (const failure of ["server", "configuration", "rate-limit", "network", "invalid-response", "false-success"] as const) {
   test(`enquiry preserves inputs and supports retry after ${failure} failure`, async ({ page }) => {
     let attempts = 0;
     await page.route(endpoint, async route => {
@@ -68,8 +68,10 @@ for (const failure of ["provider", "activation", "network", "invalid-response"] 
       if (attempts > 1) return route.fulfill({ json: { success: true } });
       if (failure === "network") return route.abort("failed");
       if (failure === "invalid-response") return route.fulfill({ status: 200, contentType: "text/html", body: "Service unavailable" });
-      if (failure === "activation") return route.fulfill({ status: 200, json: { success: "true", message: "This form needs activation." } });
-      return route.fulfill({ status: 200, json: { success: "false", message: "Email not sent" } });
+      if (failure === "configuration") return route.fulfill({ status: 503, json: { success: false } });
+      if (failure === "rate-limit") return route.fulfill({ status: 429, json: { success: false } });
+      if (failure === "false-success") return route.fulfill({ status: 200, json: { success: "false" } });
+      return route.fulfill({ status: 502, json: { success: false } });
     });
     await fillEnquiry(page);
     await page.getByRole("button", { name: "Send message", exact: true }).click();

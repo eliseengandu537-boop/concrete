@@ -8,3 +8,4 @@ playwright-report/
 *.log
 *.tar.gz
 .env*
+!.env.example
