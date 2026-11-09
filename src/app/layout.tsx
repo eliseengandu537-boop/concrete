@@ -12,8 +12,11 @@ import "@/components/services-overview.css";
 import "@/components/work.css";
 import "./mobile-performance.css";
 import "@/components/project-dialog.css";
+import "./services/services.css";
 import { SiteShell } from "@/components/site-shell";
 import { agency } from "@/lib/content";
+import { JsonLd } from "@/components/json-ld";
+import { organizationSchema, shareImage, siteUrl } from "@/lib/seo";
 
 const editorial = localFont({
   src: [
@@ -25,13 +28,15 @@ const editorial = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://concrete-agency.eliseengandu814.chatgpt.site"),
-  title: { default: "Concrete Agency — Bold ideas. Solid impact.", template: "%s | Concrete Agency" },
+  metadataBase: new URL(siteUrl),
+  title: { default: "Websites, SEO & AI Automation | Concrete Agency", template: "%s | Concrete Agency" },
   description: agency.description,
-  openGraph: { title: "Concrete Agency — Bold ideas. Solid impact.", description: agency.description, type: "website", locale: "en_ZA", images: [{ url: "/social-card.svg", width: 1200, height: 630 }] },
-  icons: { icon: "/favicon.svg" },
+  openGraph: { title: "Websites, SEO & AI Automation | Concrete Agency", siteName: agency.name, description: agency.description, type: "website", locale: "en_ZA", images: [shareImage] },
+  twitter: { card: "summary_large_image", images: [shareImage] },
+  robots: { index: process.env.VERCEL_ENV !== "preview", follow: true, googleBot: { index: process.env.VERCEL_ENV !== "preview", follow: true, "max-image-preview": "large" } },
+  icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={editorial.variable}><body id="top"><SiteShell>{children}</SiteShell></body></html>;
+  return <html lang="en-ZA" className={editorial.variable}><body id="top"><JsonLd data={{ "@context": "https://schema.org", ...organizationSchema }} /><SiteShell>{children}</SiteShell></body></html>;
 }

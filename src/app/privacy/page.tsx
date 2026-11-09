@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { agency } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Privacy notice" };
+export const metadata = pageMetadata("Privacy notice", "How Concrete Agency handles project enquiries, contact details and email correspondence submitted through this website.", "/privacy/");
 export default function Privacy() {
   return <main id="main" className="article-page light-section"><div className="article-container"><Link className="article-back" href="/">← Back to the studio</Link><div className="eyebrow">THE DETAILS</div><h1>Your privacy matters.</h1><div className="article-body">
     <h2>Project enquiries</h2><p>When you select “Send message”, your enquiry is submitted securely to our website’s server for delivery to Concrete Agency’s email inbox. You stay on this website and see a confirmation only after our email provider accepts the message.</p>

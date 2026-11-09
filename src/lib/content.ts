@@ -1,7 +1,7 @@
 export const agency = {
   name: "Concrete Agency",
   email: "eliseeweb@gmail.com",
-  description: "Concrete Agency builds and runs growth systems for established South African businesses: websites, buyer research, outreach, SEO and AEO, content, and one connected sales dashboard.",
+  description: "Web design, SEO, AI automation and lead generation for South African businesses. Concrete Agency connects your website, enquiries and sales team.",
 };
 
 export const services = [

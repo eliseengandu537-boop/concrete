@@ -31,11 +31,13 @@ Browser checks use an installed Google Chrome. They cover responsive rendering, 
 
 ## Structure
 
-- `src/app`: home, journal articles, privacy notice, 404, global styles and metadata.
+- `src/app`: home, service directory and four service pages, journal articles, privacy notice, 404, global styles, sitemap, robots and metadata.
 - `src/components`: reusable page sections, navigation, dialogs, word motion, the SVG light horizon, and glass showcase previews.
 - `src/app/editorial-theme.css`: the shared ocean-blue, cyan, and icy-glass design system.
 - `public/fonts`: self-hosted Cormorant Garamond normal/italic and its SIL Open Font License.
 - `src/lib/content.ts`: agency contact information, service descriptions, projects, and journal content.
+- `src/lib/service-pages.ts`: distinct service-page content and visitor FAQs; `service-links.ts` keeps client navigation small.
+- `src/lib/seo.ts`: production domain, canonical metadata, share images and shared structured data.
 - `public/images/projects`: compressed homepage previews of the eight supplied portfolio websites.
 - `.openai/hosting.json`: retained identity for the earlier static Sites preview; production uses Vercel, not this legacy static configuration.
 - `src/app/api/enquiry/route.ts`: server-only email endpoint, backed by `src/lib/enquiry-server.ts` and `src/lib/gmail-delivery.ts`.
@@ -65,6 +67,18 @@ For local email testing, copy `.env.example` to `.env.local` and set the value t
 Gmail credentials stay on the server. The endpoint validates origin, payload size, field types and lengths, email format, and the honeypot. Email HTML is escaped; file/URL attachment access is disabled. A bounded in-memory limit permits five attempts per IP per ten minutes per server instance. This is best-effort protection, not a distributed quota; Vercel Firewall can enforce shared limits if needed. Diagnostic logs contain only configuration status or a bounded error code, never enquiry contents or passwords. SMTP acceptance is not proof of inbox placement. Gmail account policies or sending limits may reject a message; check the Vercel function logs and the receiving inbox when troubleshooting.
 
 The enquiry browser tests intercept the website endpoint and never send real email. Coverage includes complete payloads, duplicate prevention, confirmation focus, mobile accessibility, and retries after server, configuration, rate-limit, network, and malformed-response failures. Server tests cover validation, fixed recipients, escaped email content, delivery rejection, missing credentials, and throttling. A passing mocked test does not verify real email delivery.
+
+## Search visibility
+
+The canonical production origin is **https://www.concretetagency.com**. All ten public pages have a unique title, description, canonical URL and page-specific Open Graph/Twitter metadata. The old ChatGPT preview address is no longer used in metadata. `/sitemap.xml` lists the canonical home, service directory, four service pages, three journal articles and privacy notice; it excludes the API and missing URLs. `/robots.txt` advertises the sitemap and excludes the API. Vercel preview builds use noindex metadata and disallow crawling.
+
+The service pages focus on website design, SEO/AEO, AI automation and B2B lead generation for South African businesses. They are linked from the homepage and services directory, provide distinct descriptions, scope and FAQs, and open the existing enquiry form with the appropriate service selected. No invented addresses, ratings, client results, prices or ranking promises are added. Structured data describes the Organization, WebSite, services, service catalogue, articles and breadcrumbs using visible content. Article dates and sitemap modification dates are omitted rather than fabricated.
+
+`public/social-card.png` is a 1200 × 630 branded sharing image. `public/logo.png` and `public/apple-touch-icon.png` are raster versions of the existing mark. Regenerate these code-based assets with `node scripts/generate-brand-assets.mjs` after changing `social-card.svg`, `favicon.svg` or the brand font.
+
+After deployment, the owner can verify the site in [Google Search Console](https://search.google.com/search-console/) and submit `https://www.concretetagency.com/sitemap.xml`. Domain verification needs access to the domain's DNS; a URL-prefix property may use the verification method Google offers. No verification token is fabricated and no Search Console submission is implied by deploying this code. Use URL Inspection for the homepage and new service pages, then monitor indexing, queries, clicks and enquiries. These improvements make the content discoverable; indexing and rankings remain search-engine decisions.
+
+`tests/seo.spec.ts` checks the generated HTML without relying on client-side rendering: unique metadata, canonical consistency, structured-data parsing, sitemap coverage, robots rules, PNG dimensions, crawlable service links, real 404 responses, mobile layout, accessibility and service-specific enquiry selection. These checks do not measure search rankings.
 
 ## Reference assets
 

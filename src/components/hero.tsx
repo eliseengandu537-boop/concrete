@@ -13,7 +13,7 @@ export function Hero() {
       <div className="hero-copy">
         <div className="eyebrow hero-enter"><span className="status-dot" />BUILT FOR SOUTH AFRICAN BUSINESSES.</div>
         <WordReveal as="h1" id="hero-heading" delay={100}>Bold ideas.<br />Solid <span className="hero-italic">impact.</span></WordReveal>
-        <p className="hero-description hero-enter delay-2">We find your buyers, connect your enquiries,<br />and give your sales team a clear next call.</p>
+        <p className="hero-description hero-enter delay-2">Websites, SEO, AI automation and lead generation.<br />Built to connect your enquiries and your sales team.</p>
         <a className="hero-offer hero-enter delay-2" href="#service-packages">Website included with Full AI Integration <Arrow diagonal /></a>
         <div className="hero-buttons hero-enter delay-3"><ProjectButton className="hero-orb" arrow={false}><Arrow diagonal /><span>Let’s make<br /><strong>it concrete.</strong></span></ProjectButton></div>
       </div>

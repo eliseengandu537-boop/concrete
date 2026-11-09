@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { services } from "@/lib/content";
+import { serviceLinks } from "@/lib/service-links";
 import { Arrow, Reveal, SectionLabel } from "./ui";
 import { ProjectButton } from "./site-shell";
 import { WordReveal } from "./word-reveal";
@@ -75,6 +77,7 @@ export function Services() {
         </div>
       </div>
       <ServiceSystem />
+      <nav className="service-guide-links" aria-label="Explore our services">{serviceLinks.map(service => <Link href={`/services/${service.slug}/`} key={service.slug}>{service.name} <span aria-hidden="true">↗</span></Link>)}</nav>
       <div className="services-overview-list-label"><span>THE SYSTEM, PART BY PART</span><span>10 CONNECTED SERVICES</span></div>
       <div className="service-list">{services.map((service, index) => <Reveal key={service.name}>
         <div className={`service-item ${active === index ? "is-active" : ""}`}>
