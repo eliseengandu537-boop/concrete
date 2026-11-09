@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { projects } from "@/lib/content";
+import { featuredProjects, projects } from "@/lib/content";
 
 function ShowcaseArrow() {
   return <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 
-const portfolio = projects.slice(0, 3);
+const portfolio = [...featuredProjects, projects.find(project => project.id === "newlife-united")!];
 const digitalProject = projects.find(project => project.id === "dcb-spares")!;
 
 export function HeroShowcase() {

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { projects } from "@/lib/content";
+import { featuredProjects, projects } from "@/lib/content";
 import { Arrow, Reveal, SectionLabel } from "./ui";
 import { ProjectButton } from "./site-shell";
 import { WordReveal } from "./word-reveal";
@@ -14,7 +14,7 @@ export function Work({ variant = "featured" }: { variant?: "featured" | "archive
   const dialog = useRef<HTMLDialogElement>(null);
   const [filter, setFilter] = useState("All work");
   const filters = ["All work", ...new Set(projects.map(project => project.group))];
-  const visible = isArchive ? projects.filter(project => filter === "All work" || project.group === filter) : projects.slice(0, 2);
+  const visible = isArchive ? projects.filter(project => filter === "All work" || project.group === filter) : featuredProjects;
   return <section id="work" className={`work-section portfolio-section light-section section-space ${isArchive ? "work-archive" : "work-featured"}`} aria-labelledby="work-heading"><div className="container">
     {isArchive && <Link className="article-back" href="/">← Back to the studio</Link>}
     <div><SectionLabel number="01">{isArchive ? "OUR WORK" : "SELECTED WORK"}</SectionLabel><div className="section-heading-row"><WordReveal as={isArchive ? "h1" : "h2"} id="work-heading">{isArchive ? <>Our work.<br /><span className="muted-heading">Out in the world.</span></> : <>Less ordinary.<br /><span className="muted-heading">More memorable.</span></>}</WordReveal><div className="section-intro"><p>{isArchive ? "Websites for businesses, communities and creative teams. Take a closer look, then explore the live experience." : <>Different ambitions. One shared standard.<br />Work that looks good — and means something.</>}</p><span className="small-note">{isArchive ? "DESIGNED TO BE EXPLORED" : "A SELECTION OF DIGITAL EXPERIENCES"}</span></div></div></div>
