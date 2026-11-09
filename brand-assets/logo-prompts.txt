@@ -1,0 +1,17 @@
+Created with the built-in image generation tool. Original source files retained; web icon exports only resize and encode the approved symbol.
+
+
+PRIMARY LOGO
+Use case: logo-brand.
+Asset type: final primary logo for Concrete Trades Agency, a premium South African digital agency providing website design, SEO, AI automation and lead generation.
+Create ONE exceptionally polished, distinctive, professional logo on a genuinely transparent background, with clean vector-like edges and flat solid colours. This is the actual usable logo artwork, not a branding board or a mockup.
+Composition: a balanced horizontal lockup, a compact original geometric CT monogram to the left and the wordmark to the right. The monogram suggests a solid foundation and connection: a bold architectural C with a precisely integrated T and carefully balanced negative space. It must read as one coherent memorable symbol, with simple geometry that remains recognisable at small sizes. Avoid building silhouettes, roofs, construction tools, financial charts and generic swooshes.
+Typography: the main wordmark reads exactly "concrete" in sophisticated lowercase editorial serif lettering, refined but with enough weight to stay readable. Below it, the exact words "TRADES AGENCY" in smaller widely spaced uppercase modern sans-serif lettering. Perfect spelling, optical kerning and alignment. No other text, slogan, initials outside the symbol, or trademark symbols.
+Palette: deep ocean navy #04283C for the main symbol and all lettering, with one restrained electric-blue #0089C9 accent inside the monogram. Use only these two flat colours.
+The whole logo should occupy most of a wide canvas with sensible transparent safety margins. Strong silhouette, crisp contours, elegant spacing, premium studio-level craftsmanship. No gradients, glow, shadows, texture, embossing, 3D effects, background rectangle, checkerboard graphics, stock icon appearance, watermark, or multiple alternatives. Deliver a high-resolution transparent PNG-style image.
+
+FAVICON / APP ICON
+Use case: logo-brand. Edit target: the attached Concrete Trades Agency logo.
+Create the favicon/app-icon version of this EXACT brand symbol. Keep ONLY the CT monogram from the left of the image, remove all words. Preserve its distinctive silhouette: the broad architectural C with chamfered/slanted corners and open right edge, and the inset T. Do not redesign the monogram.
+Recolour the C to perfectly solid icy white #F3FBFF and the inset T to perfectly solid cyan #8DEAFA. Place it precisely centred on a perfectly solid deep ocean navy #04283C SQUARE background. The square background fills the entire canvas edge to edge. Use comfortable even safety margins, with the monogram occupying about 72 percent of both the canvas width and height. The entire image should be perfectly square.
+Immaculately crisp, clean, flat vector-style logo art with uniform solid fills and no other elements. No wordmark, no text, no caption, no label, no gradient, no texture, no shadow, no glow, no scattered pixels, no distressed edges, no blur, no extra frames, no rounded-square outer mockup. A simple solid navy square with the clean white-and-cyan CT symbol. Designed to be immediately legible at 32 and 48 pixels. Return one high-resolution square image.

@@ -34,7 +34,13 @@ export const metadata: Metadata = {
   openGraph: { title: homeTitle, siteName: agency.name, description: agency.description, type: "website", locale: "en_ZA", images: [shareImage] },
   twitter: { card: "summary_large_image", images: [shareImage] },
   robots: { index: process.env.VERCEL_ENV !== "preview", follow: true, googleBot: { index: process.env.VERCEL_ENV !== "preview", follow: true, "max-image-preview": "large" } },
-  icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "16x16 32x32 48x48 256x256" },
+      { url: "/favicon.png", type: "image/png", sizes: "96x96" },
+    ],
+    apple: { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
