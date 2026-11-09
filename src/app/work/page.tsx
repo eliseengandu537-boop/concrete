@@ -1,8 +1,8 @@
-import { Contact } from "@/components/contact";
 import { JsonLd } from "@/components/json-ld";
-import { Work } from "@/components/work";
+import { WorkPortfolio } from "@/components/work-portfolio";
 import { projects } from "@/lib/content";
 import { absoluteUrl, breadcrumbSchema, organizationId, pageMetadata } from "@/lib/seo";
+import "./portfolio.css";
 
 export const metadata = pageMetadata(
   "Our Work — Website Design Portfolio",
@@ -26,7 +26,6 @@ export default function WorkPage() {
         },
       },
     ] }} />
-    <Work variant="archive" />
-    <Contact />
+    <WorkPortfolio />
   </main>;
 }

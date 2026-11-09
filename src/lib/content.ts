@@ -40,6 +40,7 @@ export const projects = [
   { id: "ngenzeni", name: "Ngenzeni Enterprise", category: "Construction & renovations", group: "Business", url: "https://www.ngenzeni.co.za/", image: "/images/projects/ngenzeni.webp", color: "#e7dece", description: "A website for Ngenzeni Enterprise’s construction, renovation and property improvement services. Visitors can explore the services, plan their build and start a conversation about their project.", focus: ["Construction services", "Project planning", "Website enquiries"] },
 ];
 
+export type Project = (typeof projects)[number];
 export const featuredProjects = projects.filter(project => ["dg-property", "dcb-spares"].includes(project.id));
 
 export const articles = [

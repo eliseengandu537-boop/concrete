@@ -37,6 +37,8 @@ try {
     .site-header { visibility: hidden !important; }
     .work-grid { grid-template-columns: 800px !important; width: 800px !important; }
     .work-grid > div { opacity: 1 !important; transform: none !important; padding-top: 0 !important; }
+    .work-grid .portfolio-tile, .work-grid .portfolio-preview { display: block !important; overflow: visible !important; }
+    .work-grid .portfolio-caption, .work-grid .portfolio-preview-hint, .work-grid .portfolio-project-number { display: none !important; }
     .work-grid .project-card { width: 800px !important; }
     .work-grid .project-image { width: 800px !important; height: auto !important; aspect-ratio: 1.27 !important; perspective: none !important; }
     .device-live { display: contents !important; }
