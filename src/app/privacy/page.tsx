@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Arrow } from "@/components/ui";
 import { agency } from "@/lib/content";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
@@ -22,7 +23,7 @@ export default function Privacy() {
   return <main id="main" className="article-page light-section privacy-page">
     <JsonLd data={{ "@context": "https://schema.org", ...breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Privacy policy", path: "/privacy/" }]) }} />
     <div className="article-container">
-      <Link className="article-back" href="/">← Back to the studio</Link>
+      <Link className="article-back" href="/"><Arrow direction="left" />Back to the studio</Link>
       <header className="privacy-heading">
         <div className="eyebrow">CLEAR BY DESIGN</div>
         <h1>Privacy policy.</h1>
@@ -32,7 +33,7 @@ export default function Privacy() {
       <div className="privacy-layout">
         <aside className="privacy-sidebar">
           <nav aria-label="Privacy policy contents"><span className="eyebrow">ON THIS PAGE</span>{sections.map(([id, title], index) => <a href={`#${id}`} key={id}><span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>{title}</a>)}</nav>
-          <div className="privacy-help"><strong>A question about your data?</strong><p>Contact our team using the details in this policy.</p><a href="#your-rights">Your choices & rights ↗</a></div>
+          <div className="privacy-help"><strong>A question about your data?</strong><p>Contact our team using the details in this policy.</p><a href="#your-rights">Your choices & rights <Arrow diagonal width="1em" height="1em" /></a></div>
         </aside>
         <div className="article-body privacy-body">
           <section id="who-we-are"><h2>01. Who we are</h2><p>Concrete Agency is a digital agency based in Bedfordview, Johannesburg, South Africa. This policy covers personal information collected through our website and the enquiries you send to us. Concrete Agency is responsible for deciding how that enquiry information is used.</p><p>For privacy questions or requests, email <a href={`mailto:${agency.email}`}>{agency.email}</a>.</p></section>

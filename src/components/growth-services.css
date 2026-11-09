@@ -33,7 +33,7 @@
 .growth-type-rail{overflow:hidden;margin-top:90px;border-top:1px solid #b2c29b26;padding:26px 0 32px;pointer-events:none}
 .growth-type-track{width:max-content;display:flex;align-items:center;gap:38px;font-family:var(--font-display);font-size:clamp(46px,7vw,105px);font-weight:450;letter-spacing:-.065em;line-height:1.2;color:#9cae87}
 .growth-type-track>span{white-space:nowrap}
-.growth-type-track .rail-star{font-size:.62em;color:var(--lime);padding-inline:10px}
+.growth-type-track .rail-accent{font-size:.62em;color:var(--lime);margin-inline:10px}
 .growth-jump{display:flex;align-items:center;gap:12px;font-size:12px;margin-top:22px;color:#455735}
 .growth-jump:hover{color:#172d02}
 .growth-jump svg{width:16px;height:16px}

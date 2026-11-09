@@ -18,7 +18,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .mobile-nav small{color:#c2dfed}
 .discipline-strip{background:#052c42;color:#c2dfed;padding:23px 0;border-block:1px solid var(--line)}
 .discipline-group>span{font-family:var(--font-editorial);font-size:26px;font-weight:400;letter-spacing:-.02em}
-.strip-star{font-size:20px;color:var(--cyan)}
+.strip-accent{font-size:20px;color:var(--cyan)}
 .light-section{background:#052c42;color:var(--paper)}
 .section-label{font-size:8px;letter-spacing:.14em;color:#b5d7e7;font-weight:400}
 .label-cross{color:var(--cyan);font-size:17px}
@@ -82,7 +82,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .contact-pretitle,.contact-bottom>p,.contact-email{color:#c4e5f1}
 .contact-section h2{font-family:var(--font-editorial);font-weight:400;font-size:clamp(72px,9vw,132px);letter-spacing:-.045em;line-height:.96}
 .contact-section h2>.contact-accent{font-family:var(--font-editorial);letter-spacing:-.045em}
-.contact-star{font-weight:300;font-size:58px}
+.contact-accent-mark{font-weight:300;font-size:58px}
 .footer{background:#04283c}
 .footer-top>p,.footer-bottom{color:#a7d0e1}
 dialog{background:#f3fbff;color:#12354a;border:1px solid #fffa;box-shadow:0 20px 100px #0006}
@@ -107,4 +107,4 @@ form input::placeholder,form textarea::placeholder{color:#536f80}
 .cinematic-hero .hero-showcase{margin-top:67px}
 @media(max-width:1100px){.section-heading-row h2{font-size:64px}.growth-heading{font-size:51px}.journal-card h3{font-size:27px}}
 @media(max-width:800px){.nav-wrap{height:76px}.wordmark>span{font-size:29px}.section-heading-row h2{font-size:61px}.manifesto{font-size:36px}.growth-heading{font-size:53px}.journal-card h3{font-size:24px}.cinematic-hero .hero-showcase{margin-top:58px}.contact-section h2{font-size:10.5vw}}
-@media(max-width:600px){.nav-wrap{height:72px}.wordmark>span{font-size:27px}.wordmark>svg{width:24px;height:24px}.wordmark-sub{font-size:5px}.button-nav{font-size:8px;padding-left:12px;gap:5px;min-height:34px}.button-nav .button-icon{width:22px;height:22px}.nav-actions{gap:5px}.menu-toggle{width:32px;padding:7px}.section-heading-row h2{font-size:52px}.discipline-group>span{font-size:23px}.strip-star{font-size:17px}.manifesto{font-size:35px}.studio-values h3{font-size:26px}.service-title{font-size:29px}.growth-heading{font-size:48px}.journal-card h3{font-size:30px}.contact-section h2{font-size:14.5vw;line-height:1}.contact-star{font-size:36px}.cinematic-hero .hero-showcase{margin-top:54px}.dialog-inner h2{font-size:59px}.section-intro{font-size:12px}.hero-showcase .showcase-label{font-size:8px}}
+@media(max-width:600px){.nav-wrap{height:72px}.wordmark>span{font-size:27px}.wordmark>svg{width:24px;height:24px}.wordmark-sub{font-size:5px}.button-nav{font-size:8px;padding-left:12px;gap:5px;min-height:34px}.button-nav .button-icon{width:22px;height:22px}.nav-actions{gap:5px}.menu-toggle{width:32px;padding:7px}.section-heading-row h2{font-size:52px}.discipline-group>span{font-size:23px}.strip-accent{font-size:17px}.manifesto{font-size:35px}.studio-values h3{font-size:26px}.service-title{font-size:29px}.growth-heading{font-size:48px}.journal-card h3{font-size:30px}.contact-section h2{font-size:14.5vw;line-height:1}.contact-accent-mark{font-size:36px}.cinematic-hero .hero-showcase{margin-top:54px}.dialog-inner h2{font-size:59px}.section-intro{font-size:12px}.hero-showcase .showcase-label{font-size:8px}}

@@ -8,7 +8,7 @@
 .service-scope h2,.service-faq>h2,.service-related h2{font-family:var(--font-editorial);font-weight:400;font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.15;margin:14px 0 28px;letter-spacing:-.025em}
 .service-scope ul{padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px 30px}
 .service-scope li{padding-left:20px;position:relative;line-height:1.6}
-.service-scope li::before{content:'↗';position:absolute;left:0;color:#046487}
+.service-scope li>.icon-arrow{position:absolute;left:0;top:.3em;color:#046487}
 .service-detail .article-body{max-width:800px}
 .service-detail .article-body section{margin:44px 0}
 .service-faq{border-top:1px solid #bfd4df;padding-top:52px;margin-top:60px}

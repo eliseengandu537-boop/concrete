@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { growthServices } from "@/lib/content";
 import { ProjectButton } from "./site-shell";
 import { WordReveal } from "./word-reveal";
-import { Arrow, Reveal, SectionLabel } from "./ui";
+import { Arrow, FoundationAccent, Reveal, SectionLabel } from "./ui";
 
 export function GrowthServices() {
   const section = useRef<HTMLElement>(null);
@@ -26,7 +26,7 @@ export function GrowthServices() {
         <ol className="growth-list">
           {growthServices.map((service, index) => <li key={service.short}>
             <Reveal><article className="growth-item" aria-labelledby={`growth-service-${index}`}>
-              <div className="growth-item-meta"><span>{String(index + 1).padStart(2, "0")}</span><span className="growth-phase">{service.phase}<span aria-hidden="true"> ↗</span></span></div>
+              <div className="growth-item-meta"><span>{String(index + 1).padStart(2, "0")}</span><span className="growth-phase">{service.phase}<span><Arrow diagonal width="1em" height="1em" /></span></span></div>
               <WordReveal as="h3" id={`growth-service-${index}`}>{service.name}</WordReveal>
               <p className="growth-benefit">{service.description}</p>
               <p className="growth-detail">{service.detail}</p>
@@ -36,6 +36,6 @@ export function GrowthServices() {
         </ol>
       </div>
     </div>
-    <div className="growth-type-rail" aria-hidden="true"><motion.div className="growth-type-track" style={{ x: railX }}><span>Good design.</span><span className="rail-star">✳</span><span>Better connections.</span><span className="rail-star">✳</span><span>Concrete impact.</span></motion.div></div>
+    <div className="growth-type-rail" aria-hidden="true"><motion.div className="growth-type-track" style={{ x: railX }}><span>Good design.</span><FoundationAccent className="rail-accent" /><span>Better connections.</span><FoundationAccent className="rail-accent" /><span>Concrete impact.</span></motion.div></div>
   </section>;
 }

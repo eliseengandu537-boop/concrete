@@ -3,8 +3,19 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode, SVGProps } from "react";
 
-export function Arrow({ diagonal = false, ...props }: SVGProps<SVGSVGElement> & { diagonal?: boolean }) {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}><path d={diagonal ? "M5 19 19 5M5 5h14v14" : "M4 12h15m-6-6 6 6-6 6"} stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+const arrowPaths = {
+  right: "M4 12h15m-6-6 6 6-6 6",
+  left: "M20 12H5m6-6-6 6 6 6",
+  up: "M12 20V5m-6 6 6-6 6 6",
+  down: "M12 4v15m-6-6 6 6 6-6",
+};
+
+export function Arrow({ diagonal = false, direction = "right", className = "", ...props }: SVGProps<SVGSVGElement> & { diagonal?: boolean; direction?: keyof typeof arrowPaths }) {
+  return <svg className={`icon-arrow ${className}`.trim()} width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" {...props}><path d={diagonal ? "M5 19 19 5M5 5h14v14" : arrowPaths[direction]} stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+}
+
+export function FoundationAccent({ className = "" }: { className?: string }) {
+  return <svg className={`foundation-accent ${className}`.trim()} width="1em" height="1em" viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false"><path d="m24 4 18 10v20L24 44 6 34V14L24 4Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /><path d="m6 14 18 10 18-10M24 24v20" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg>;
 }
 
 export function Mark({ className = "" }: { className?: string }) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Arrow } from "./ui";
+import { Arrow, FoundationAccent } from "./ui";
 import { ProjectButton } from "./site-shell";
 import { WordReveal } from "./word-reveal";
 import { Horizon } from "./horizon";
@@ -20,11 +20,11 @@ export function Hero() {
       <div className="hero-margin-note hero-note-left hero-enter delay-3"><span className="margin-note-number">01 — 03</span><p>Find.<br />Connect.<br /><em>Grow.</em></p><span className="margin-note-rule" /><span>BUILT AROUND YOUR BUSINESS.</span></div>
       <div className="hero-margin-note hero-note-right hero-enter delay-3"><span className="margin-note-number">FROM ENQUIRY<br />TO OPPORTUNITY.</span><p>One system.<br /><em>A clear next step.</em></p><a href="#services">Explore what we do <Arrow diagonal /></a></div>
       <HeroShowcase />
-      <div className="hero-bottom"><span>WEBSITES + OUTREACH + SALES SYSTEMS</span><span className="hero-bottom-mid">Good conversations. Concrete possibilities.</span><a href="#services">SCROLL TO EXPLORE <span>↓</span></a></div>
+      <div className="hero-bottom"><span>WEBSITES + OUTREACH + SALES SYSTEMS</span><span className="hero-bottom-mid">Good conversations. Concrete possibilities.</span><a href="#services">SCROLL TO EXPLORE <span><Arrow direction="down" width="1em" height="1em" /></span></a></div>
     </div>
   </section>;
 }
 
 export function DisciplineStrip() {
-  return <div className="discipline-strip" aria-label="Buyer research, permission-first outreach, SEO and AEO, content and social, sales systems"><div className="discipline-track">{[0, 1].map(copy => <div className="discipline-group" key={copy} aria-hidden={copy === 1}>{["Buyer research", "Permission-first outreach", "SEO + AEO", "Content + social", "Sales systems"].map(word => <span key={word}>{word}<span className="strip-star">✳</span></span>)}</div>)}</div></div>;
+  return <div className="discipline-strip" aria-label="Buyer research, permission-first outreach, SEO and AEO, content and social, sales systems"><div className="discipline-track">{[0, 1].map(copy => <div className="discipline-group" key={copy} aria-hidden={copy === 1}>{["Buyer research", "Permission-first outreach", "SEO + AEO", "Content + social", "Sales systems"].map(word => <span key={word}>{word}<FoundationAccent className="strip-accent" /></span>)}</div>)}</div></div>;
 }

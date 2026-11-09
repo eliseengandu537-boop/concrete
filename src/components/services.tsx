@@ -49,7 +49,7 @@ function ServiceSystem() {
       <div className="service-system-converge" aria-hidden="true"><span /><Arrow /></div>
       <div className="service-system-dashboard"><span className="service-system-signal" aria-hidden="true"><i /><i /><i /></span><span>ONE SALES DASHBOARD</span><strong>Who to call.<br />Why. What to say.</strong><p>Every interested reply and enquiry, with the context your team needs.</p></div>
     </div>
-    <div className="service-system-outcomes"><span>THEN YOUR TEAM</span><ol><li>Calls the lead</li><li>Sends a quote</li><li>Records won jobs</li></ol><p>Results feed the next improvement <span aria-hidden="true">↗</span></p></div>
+    <div className="service-system-outcomes"><span>THEN YOUR TEAM</span><ol><li>Calls the lead</li><li><Arrow width="1em" height="1em" />Sends a quote</li><li><Arrow width="1em" height="1em" />Records won jobs</li></ol><p>Results feed the next improvement <Arrow diagonal width="1em" height="1em" /></p></div>
   </figure>;
 }
 
@@ -77,7 +77,7 @@ export function Services() {
         </div>
       </div>
       <ServiceSystem />
-      <nav className="service-guide-links" aria-label="Explore our services">{serviceLinks.map(service => <Link href={`/services/${service.slug}/`} key={service.slug}>{service.name} <span aria-hidden="true">↗</span></Link>)}</nav>
+      <nav className="service-guide-links" aria-label="Explore our services">{serviceLinks.map(service => <Link href={`/services/${service.slug}/`} key={service.slug}>{service.name} <Arrow diagonal width="1em" height="1em" /></Link>)}</nav>
       <div className="services-overview-list-label"><span>THE SYSTEM, PART BY PART</span><span>10 CONNECTED SERVICES</span></div>
       <div className="service-list">{services.map((service, index) => <Reveal key={service.name}>
         <div className={`service-item ${active === index ? "is-active" : ""}`}>

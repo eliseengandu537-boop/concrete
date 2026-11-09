@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Arrow } from "./ui";
 import { featuredProjects, projects } from "@/lib/content";
 
 function ShowcaseArrow() {
@@ -39,7 +40,7 @@ export function HeroShowcase() {
     <a className="showcase-item showcase-digital" href="#services" aria-label="Explore our web design and development services">
       <div className="showcase-label"><span><i />03 / DIGITAL CRAFT</span><ShowcaseArrow /></div>
       <div className="showcase-panel">
-        <div className="showcase-panel-heading"><span>Made to stand out.</span><span className="showcase-size-label">EVERY SCREEN ↗</span></div>
+        <div className="showcase-panel-heading"><span>Made to stand out.</span><span className="showcase-size-label">EVERY SCREEN <Arrow diagonal width="1.5em" height="1.5em" /></span></div>
         <div className="showcase-screens" aria-hidden="true">
           <div className="showcase-browser showcase-browser-back"><div className="showcase-browser-bar"><span /><span /><span /></div><div className="showcase-browser-abstract"><span>Form.<br /><em>Feeling.</em></span><i /></div></div>
           <div className="showcase-browser showcase-browser-front"><div className="showcase-browser-bar"><span /><span /><span /><i>{new URL(digitalProject.url).hostname.replace(/^www\./, "")}</i></div><Image src={digitalProject.image} alt="" width={420} height={280} sizes="(max-width: 600px) 70vw, 300px" /></div>
