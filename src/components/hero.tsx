@@ -11,7 +11,7 @@ export function Hero() {
     <Horizon />
     <div className="container hero-inner">
       <div className="hero-copy">
-        <div className="eyebrow hero-enter"><span className="status-dot" />BUILT FOR SOUTH AFRICAN BUSINESSES.</div>
+        <div className="eyebrow hero-enter"><span className="status-dot" />CONCRETE AGENCY · SOUTH AFRICA</div>
         <WordReveal as="h1" id="hero-heading" delay={100}>Bold ideas.<br />Solid <span className="hero-italic">impact.</span></WordReveal>
         <p className="hero-description hero-enter delay-2">Websites, SEO, AI automation and lead generation.<br />Built to connect your enquiries and your sales team.</p>
         <a className="hero-offer hero-enter delay-2" href="#service-packages">Website included with Full AI Integration <Arrow diagonal /></a>

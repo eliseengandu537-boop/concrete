@@ -16,7 +16,7 @@ import "./services/services.css";
 import { SiteShell } from "@/components/site-shell";
 import { agency } from "@/lib/content";
 import { JsonLd } from "@/components/json-ld";
-import { organizationSchema, shareImage, siteUrl } from "@/lib/seo";
+import { homeTitle, organizationSchema, shareImage, siteUrl } from "@/lib/seo";
 
 const editorial = localFont({
   src: [
@@ -29,9 +29,9 @@ const editorial = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Websites, SEO & AI Automation | Concrete Agency", template: "%s | Concrete Agency" },
+  title: { default: homeTitle, template: "%s | Concrete Agency" },
   description: agency.description,
-  openGraph: { title: "Websites, SEO & AI Automation | Concrete Agency", siteName: agency.name, description: agency.description, type: "website", locale: "en_ZA", images: [shareImage] },
+  openGraph: { title: homeTitle, siteName: agency.name, description: agency.description, type: "website", locale: "en_ZA", images: [shareImage] },
   twitter: { card: "summary_large_image", images: [shareImage] },
   robots: { index: process.env.VERCEL_ENV !== "preview", follow: true, googleBot: { index: process.env.VERCEL_ENV !== "preview", follow: true, "max-image-preview": "large" } },
   icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },

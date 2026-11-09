@@ -5,10 +5,12 @@ export const siteUrl = "https://www.concretetagency.com";
 export const absoluteUrl = (path = "/") => new URL(path, siteUrl).href;
 export const organizationId = `${siteUrl}/#organization`;
 export const websiteId = `${siteUrl}/#website`;
+export const homePageTitle = "Web Design & AI Automation South Africa";
+export const homeTitle = `${agency.name} | ${homePageTitle}`;
 export const shareImage = { url: "/social-card.png", width: 1200, height: 630, alt: "Concrete Agency — websites, SEO, AI automation and lead generation" };
 
 export function pageMetadata(title: string, description: string, path: string, type: "website" | "article" = "website"): Metadata {
-  const fullTitle = `${title} | ${agency.name}`;
+  const fullTitle = path === "/" ? `${agency.name} | ${title}` : `${title} | ${agency.name}`;
   return {
     title: { absolute: fullTitle }, description,
     alternates: { canonical: path },
