@@ -31,14 +31,14 @@ Browser checks use an installed Google Chrome. They cover responsive rendering, 
 
 ## Structure
 
-- `src/app`: home, service directory and four service pages, journal articles, privacy notice, 404, global styles, sitemap, robots and metadata.
+- `src/app`: home, full portfolio, service directory and four service pages, journal articles, privacy policy, 404, global styles, sitemap, robots and metadata.
 - `src/components`: reusable page sections, navigation, dialogs, word motion, the SVG light horizon, and glass showcase previews.
 - `src/app/editorial-theme.css`: the shared ocean-blue, cyan, and icy-glass design system.
 - `public/fonts`: self-hosted Cormorant Garamond normal/italic and its SIL Open Font License.
 - `src/lib/content.ts`: agency contact information, service descriptions, projects, and journal content.
 - `src/lib/service-pages.ts`: distinct service-page content and visitor FAQs; `service-links.ts` keeps client navigation small.
 - `src/lib/seo.ts`: production domain, canonical metadata, share images and shared structured data.
-- `public/images/projects`: compressed homepage previews of the eight supplied portfolio websites.
+- `public/images/projects`: compressed desktop, tablet, phone and composed previews of the nine supplied portfolio websites.
 - `.openai/hosting.json`: retained identity for the earlier static Sites preview; production uses Vercel, not this legacy static configuration.
 - `src/app/api/enquiry/route.ts`: server-only email endpoint, backed by `src/lib/enquiry-server.ts` and `src/lib/gmail-delivery.ts`.
 
@@ -70,7 +70,7 @@ The enquiry browser tests intercept the website endpoint and never send real ema
 
 ## Search visibility
 
-The canonical production origin is **https://www.concretetagency.com**. All ten public pages have a unique title, description, canonical URL and page-specific Open Graph/Twitter metadata. The old ChatGPT preview address is no longer used in metadata. `/sitemap.xml` lists the canonical home, service directory, four service pages, three journal articles and privacy notice; it excludes the API and missing URLs. `/robots.txt` advertises the sitemap and excludes the API. Vercel preview builds use noindex metadata and disallow crawling.
+The canonical production origin is **https://www.concretetagency.com**. All eleven public pages have a unique title, description, canonical URL and page-specific Open Graph/Twitter metadata. The old ChatGPT preview address is no longer used in metadata. `/sitemap.xml` lists the canonical home, portfolio, service directory, four service pages, three journal articles and privacy policy; it excludes the API and missing URLs. `/robots.txt` advertises the sitemap and excludes the API. Vercel preview builds use noindex metadata and disallow crawling.
 
 The service pages focus on website design, SEO/AEO, AI automation and B2B lead generation for South African businesses. They are linked from the homepage and services directory, provide distinct descriptions, scope and FAQs, and open the existing enquiry form with the appropriate service selected. No invented addresses, ratings, client results, prices or ranking promises are added. Structured data describes the Organization, WebSite, services, service catalogue, articles and breadcrumbs using visible content. Article dates and sitemap modification dates are omitted rather than fabricated.
 
@@ -82,13 +82,15 @@ After deployment, the owner can verify the site in [Google Search Console](https
 
 ## Reference assets
 
-The demo projects have been replaced with the eight websites supplied for the Work section: [DG Property](https://dg-property.co.za/), [MicroLogistics](https://micrologistics.co.za/), [Newlife United](https://newlifeunited.co.za/), [Thunder Brothers](https://thunderbrothers.co.za/), [CTCPM Data Warehouse](https://www.datawarehouse.ctcpm.cd/), [Lens Photo Studio](https://lensphotostudio.co.za/), [DCB Spares](https://www.dcbspares.co.za/), and [Fedpump CC](https://www.fedpump.com/). Previews are locally served WebP screenshots of their public homepages, captured on 6 November 2026. Descriptions explain the websites’ visible subjects and features without inventing results, testimonials, or project responsibilities. Each card and project dialog offers a direct link to the relevant website. Hero previews use the same portfolio data.
+The portfolio contains the nine websites supplied by the owner: [DG Property](https://dg-property.co.za/), [MicroLogistics](https://micrologistics.co.za/), [Newlife United](https://newlifeunited.co.za/), [Thunder Brothers](https://thunderbrothers.co.za/), [CTCPM Data Warehouse](https://www.datawarehouse.ctcpm.cd/), [Lens Photo Studio](https://lensphotostudio.co.za/), [DCB Spares](https://www.dcbspares.co.za/), [Fedpump CC](https://www.fedpump.com/), and [Ngenzeni Enterprise](https://www.ngenzeni.co.za/). Previews are locally served WebP screenshots of their public homepages, captured on 6 November 2026 (Ngenzeni: 9 November 2026). Descriptions explain visible subjects and features without inventing results or testimonials. Each card and project dialog links to the live website. Hero previews use the same portfolio data.
+
+The homepage features the first two projects and a **See more work** link. `/work/` presents all nine with category filters, accessible project dialogs, collection metadata and a contact section. Navigation and footer Work links open the full portfolio. `/privacy/` covers website enquiry collection, uses, Vercel/Gmail processing, cookies, retention, security, privacy rights and external links. It is linked from the footer and enquiry form, and does not publish the owner's private street address.
 
 The Work cards and project dialogs display each website in a layered laptop, tablet, and phone composition. Tablet and phone screens use separate captures at 820 × 1100 and 390 × 844 rather than crops of the desktop screenshot. The CSS device frames use graphite edges, a metallic laptop base, soft shadows, and restrained hover motion. The composition scales to small screens and respects reduced-motion preferences.
 
-At widths up to 800px or with a coarse pointer, each mockup is a single locally served `*-devices.webp` composition. The live device layers are hidden, the cards remain still, and the separate screen images are lazy-loaded only when visible. This avoids the filtered, rotated surfaces implicated in Android scrolling artifacts. The eight composed images total about 363 kB, compared with 1.17 MB for the 24 separate screenshots; hero images remain separate. Heading and scroll-text motion is preserved.
+At widths up to 800px or with a coarse pointer, each mockup is a single locally served `*-devices.webp` composition. The live device layers are hidden, the cards remain still, and the separate screen images are lazy-loaded only when visible. This avoids the filtered, rotated surfaces implicated in Android scrolling artifacts. The nine composed images total about 406 kB; the homepage loads only its two featured mockups, and hero images remain separate. Heading and scroll-text motion is preserved.
 
-After changing screenshots or device styling, run `node scripts/capture-project-mockups.mjs` against the built local preview, then rebuild to include the refreshed compositions. The helper renders the actual desktop markup at 800px wide and encodes WebP in Chrome; it requires no extra image library. `PREVIEW_URL` may point to another local preview. The touch-rendering regression check covers phone and landscape tablet layouts, image requests, touch scrolling with CPU throttling, and project links with reduced motion turned off.
+After changing screenshots or device styling, run `node scripts/capture-project-mockups.mjs` against the built local preview, then restart the server to discover newly added files (and rebuild before deployment). Pass a project ID, for example `node scripts/capture-project-mockups.mjs ngenzeni`, to capture only that project. The helper opens `/work/`, renders the actual desktop markup at 800px wide and encodes WebP in Chrome; it requires no extra image library. `PREVIEW_URL` may point to another local preview. The touch-rendering regression check covers phone and landscape tablet layouts, image requests, touch scrolling with CPU throttling, and project links with reduced motion turned off.
 
 The journal articles and general agency copy were written for this build. The geometric brand mark and journal illustrations are original SVG/CSS assets.
 

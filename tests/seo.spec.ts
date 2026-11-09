@@ -8,7 +8,8 @@ test("every sitemap page has server-rendered, unique metadata and the production
   const response = await request.get("/sitemap.xml");
   expect(response.ok()).toBeTruthy();
   const urls = [...(await response.text()).matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-  expect(urls).toHaveLength(10);
+  expect(urls).toHaveLength(11);
+  expect(urls).toContain(`${siteUrl}/work/`);
   const titles = new Set<string>();
   const descriptions = new Set<string>();
   for (const url of urls) {

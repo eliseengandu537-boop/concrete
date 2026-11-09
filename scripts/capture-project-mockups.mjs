@@ -28,7 +28,7 @@ try {
     return requestUrl.origin === preview.origin ? route.continue() : route.abort();
   });
   const page = await context.newPage();
-  const response = await page.goto(preview.href, { waitUntil: 'networkidle' });
+  const response = await page.goto(new URL('/work/', preview).href, { waitUntil: 'networkidle' });
   if (!response?.ok()) throw new Error(`Local preview returned HTTP ${response?.status()}.`);
   await page.evaluate(() => document.fonts.ready);
   await page.addStyleTag({ content: `
@@ -44,7 +44,11 @@ try {
   ` });
   await page.mouse.move(0, 0);
 
-  const stages = page.locator('.work-grid .project-image');
+  const projectId = process.argv[2];
+  if (projectId && !/^[a-z0-9-]+$/.test(projectId)) throw new Error('Project ID must contain only lowercase letters, numbers and hyphens.');
+  const stages = projectId
+    ? page.locator('.work-grid .project-image').filter({ has: page.locator(`.laptop-screen img[src="/images/projects/${projectId}.webp"]`) })
+    : page.locator('.work-grid .project-image');
   const count = await stages.count();
   if (!count) throw new Error('No portfolio device compositions found in the local preview.');
   const captured = new Set();

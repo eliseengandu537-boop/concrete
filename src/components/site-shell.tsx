@@ -24,11 +24,12 @@ function Navigation() {
     return () => document.removeEventListener("keydown", close);
   }, [open]);
   const links = [["Work", "work"], ["About", "about"], ["What we do", "services"], ["Journal", "journal"]];
+  const destination = (anchor: string) => anchor === "work" ? "/work/" : `${pathname === "/" ? "" : "/"}#${anchor}`;
   return <header className="site-header"><div className="nav-wrap">
     <Link href="/" className="wordmark" aria-label="Concrete Agency home" onClick={() => setOpen(false)}><Mark /><span>concrete<span className="wordmark-sub">AGENCY</span></span></Link>
-    <nav aria-label="Main navigation" className="desktop-nav">{links.map(([label, anchor]) => <a key={anchor} href={`${pathname === "/" ? "" : "/"}#${anchor}`}>{label}<span className="nav-dot" /></a>)}</nav>
+    <nav aria-label="Main navigation" className="desktop-nav">{links.map(([label, anchor]) => <Link key={anchor} href={destination(anchor)} aria-current={anchor === "work" && pathname.replace(/\/$/, "") === "/work" ? "page" : undefined}>{label}<span className="nav-dot" /></Link>)}</nav>
     <div className="nav-actions"><ProjectButton className="button button-nav" /><button ref={menuButton} className={`menu-toggle ${open ? "is-open" : ""}`} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}><span /><span /></button></div>
-  </div><nav id="mobile-navigation" aria-label="Mobile navigation" className={`mobile-nav ${open ? "is-open" : ""}`} inert={!open}>{links.map(([label, anchor], index) => <Link href={`/#${anchor}`} key={anchor} onClick={() => setOpen(false)}><small>0{index + 1}</small>{label}<Arrow diagonal /></Link>)}<Link href="/#contact" onClick={() => setOpen(false)}><small>05</small>Get in touch<Arrow diagonal /></Link></nav></header>;
+  </div><nav id="mobile-navigation" aria-label="Mobile navigation" className={`mobile-nav ${open ? "is-open" : ""}`} inert={!open}>{links.map(([label, anchor], index) => <Link href={destination(anchor)} key={anchor} onClick={() => setOpen(false)}><small>0{index + 1}</small>{label}<Arrow diagonal /></Link>)}<Link href="/#contact" onClick={() => setOpen(false)}><small>05</small>Get in touch<Arrow diagonal /></Link></nav></header>;
 }
 
 export function SiteShell({ children }: { children: ReactNode }) {
@@ -49,5 +50,5 @@ export function SiteShell({ children }: { children: ReactNode }) {
 }
 
 function Footer() {
-  return <footer className="footer"><div className="container"><div className="footer-top"><Link href="/" className="wordmark" aria-label="Concrete Agency home"><Mark /><span>concrete<span className="wordmark-sub">AGENCY</span></span></Link><p>Independent minds.<br />Extraordinary possibilities.</p><div className="footer-links"><Link href="/#work">Work</Link><Link href="/#about">About</Link><Link href="/services/">Services</Link><Link href="/#contact">Contact</Link></div><a className="footer-email" href={`mailto:${agency.email}`}>{agency.email}<Arrow diagonal /></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Concrete Agency</span><span className="footer-crafted">Built with intention. Down to the last pixel.</span><Link href="/privacy/">Privacy</Link><a href="#top">Back to top ↑</a></div></div></footer>;
+  return <footer className="footer"><div className="container"><div className="footer-top"><Link href="/" className="wordmark" aria-label="Concrete Agency home"><Mark /><span>concrete<span className="wordmark-sub">AGENCY</span></span></Link><p>Independent minds.<br />Extraordinary possibilities.</p><div className="footer-links"><Link href="/work/">Work</Link><Link href="/#about">About</Link><Link href="/services/">Services</Link><Link href="/#contact">Contact</Link></div><a className="footer-email" href={`mailto:${agency.email}`}>{agency.email}<Arrow diagonal /></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Concrete Agency</span><span className="footer-crafted">Built with intention. Down to the last pixel.</span><Link href="/privacy/">Privacy policy</Link><a href="#top">Back to top ↑</a></div></div></footer>;
 }

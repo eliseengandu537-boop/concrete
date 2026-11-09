@@ -82,7 +82,7 @@ export function ProjectDialog({ dialogRef }: { dialogRef: RefObject<HTMLDialogEl
             <label>A little about your project <span>*</span><textarea name="message" required rows={3} placeholder="The idea, the ambition, the thing keeping you up at night…" maxLength={3000} /></label>
             <input className="enquiry-honeypot" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" />
           </fieldset>
-          <p className="form-note">Your details go directly to our team so we can respond to your enquiry. <Link href="/privacy/" onClick={() => dialogRef.current?.close()}>Privacy notice</Link>.</p>
+          <p className="form-note">Your details go directly to our team so we can respond to your enquiry. <Link href="/privacy/" onClick={() => dialogRef.current?.close()}>Privacy policy</Link>.</p>
           {status === "error" && <p ref={errorNotice} tabIndex={-1} className="enquiry-error" role="alert">{error}</p>}
           <button type="submit" className="button button-lime enquiry-submit" disabled={status === "sending"}>{status === "sending" ? <>Sending message<span className="enquiry-spinner" aria-hidden="true" /></> : <>Send message<span className="button-icon"><Arrow diagonal /></span></>}</button>
           <noscript><p className="form-note">Please enable JavaScript to send an enquiry through this form.</p></noscript>

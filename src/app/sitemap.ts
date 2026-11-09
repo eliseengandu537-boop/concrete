@@ -4,6 +4,6 @@ import { servicePages } from "@/lib/service-pages";
 import { absoluteUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["/", "/services/", ...servicePages.map(service => `/services/${service.slug}/`), ...articles.map(article => `/journal/${article.slug}/`), "/privacy/"]
+  return ["/", "/work/", "/services/", ...servicePages.map(service => `/services/${service.slug}/`), ...articles.map(article => `/journal/${article.slug}/`), "/privacy/"]
     .map(path => ({ url: absoluteUrl(path) }));
 }

@@ -1,0 +1,27 @@
+.privacy-page .article-container{max-width:1120px}
+.privacy-heading{max-width:760px;margin-bottom:64px}
+.privacy-heading h1{font-size:clamp(60px,7vw,96px);line-height:1}
+.privacy-heading .article-standfirst{max-width:670px;font-size:19px;line-height:1.8}
+.privacy-updated{font-size:12px;color:#496879;margin-top:24px}
+.privacy-updated time{margin-left:12px;color:#12354a}
+.privacy-layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:70px;align-items:start;border-top:1px solid #12354a25;padding-top:40px}
+.privacy-sidebar{position:sticky;top:115px}
+.privacy-sidebar nav{padding:24px 20px;background:linear-gradient(135deg,#d7f0f8aa,#e8f7fc);border:1px solid #9dbfcf66;border-radius:14px}
+.privacy-sidebar .eyebrow{display:block;margin-bottom:16px;font-size:9px}
+.privacy-sidebar nav a{display:flex;align-items:center;gap:12px;min-height:44px;font-size:12px;color:#244e64;border-bottom:1px solid #12354a12;transition:color .2s}
+.privacy-sidebar nav a:last-child{border-bottom:0}
+.privacy-sidebar nav a:hover{color:#006f99;text-decoration:underline;text-underline-offset:4px}
+.privacy-sidebar nav a span{font-size:10px;color:#4a6d7d;font-variant-numeric:tabular-nums}
+.privacy-help{padding:24px 8px;font-size:12px;line-height:1.8;color:#436276}
+.privacy-help strong{color:#12354a;font-weight:500}
+.privacy-help p{margin:8px 0 12px}
+.privacy-help a{color:#00648a;text-decoration:underline;text-underline-offset:4px}
+.privacy-body{margin-top:0}
+.privacy-body section{scroll-margin-top:110px;padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid #12354a18}
+.privacy-body section:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.privacy-body section h2{margin:0 0 18px;font-size:34px}
+.privacy-body section p{font-size:15px;line-height:1.9}
+.privacy-body section a{color:#00648a;overflow-wrap:anywhere}
+.privacy-body section p:last-child{margin-bottom:0}
+@media(max-width:900px){.privacy-layout{grid-template-columns:210px minmax(0,1fr);gap:35px}}
+@media(max-width:650px){.privacy-heading{margin-bottom:36px}.privacy-heading .article-standfirst{font-size:17px}.privacy-layout{grid-template-columns:1fr;gap:36px;padding-top:28px}.privacy-sidebar{position:static}.privacy-sidebar nav{display:grid;grid-template-columns:1fr 1fr;column-gap:15px;padding:20px 16px}.privacy-sidebar .eyebrow{grid-column:1/-1;margin-bottom:8px}.privacy-sidebar nav a{font-size:11px;line-height:1.5;gap:7px;padding-block:6px}.privacy-help{display:none}.privacy-body section h2{font-size:30px}.privacy-body section p{font-size:15px}}
