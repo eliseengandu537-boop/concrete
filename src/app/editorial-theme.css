@@ -9,13 +9,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 .wordmark>svg{color:var(--paper);width:27px;height:27px}
 .wordmark>span{font-family:var(--font-editorial);font-size:32px;letter-spacing:-.055em;font-weight:500}
 .wordmark-sub{font-family:var(--font-body);font-size:5px;letter-spacing:.42em;margin-top:5px}
-.desktop-nav{gap:31px;margin-left:35px}
+.desktop-nav{gap:clamp(15px,2vw,31px);margin-left:clamp(0px,2vw,35px)}
 .desktop-nav a{color:#e1f4fc;font-size:10px}
+.desktop-nav a[aria-current="page"],.mobile-nav a[aria-current="page"]{color:var(--cyan)}
+.desktop-nav a[aria-current="page"] .nav-dot{opacity:1;transform:translateY(0)}
 .button-nav{background:var(--paper);color:var(--ink);border:1px solid #fff;min-height:36px;padding:4px 6px 4px 16px;font-size:9px;gap:18px}
 .button-nav .button-icon{background:transparent;color:var(--ink);width:25px;height:25px}
 .button-nav:hover{background:#d9f7ff;border-color:#d9f7ff}
 .mobile-nav{background:#06435d}
 .mobile-nav small{color:#c2dfed}
+@media(max-width:800px){.mobile-nav.is-open{max-height:calc(100svh - 76px);overflow-y:auto;overscroll-behavior:contain}}
 .discipline-strip{background:#052c42;color:#c2dfed;padding:23px 0;border-block:1px solid var(--line)}
 .discipline-group>span{font-family:var(--font-editorial);font-size:26px;font-weight:400;letter-spacing:-.02em}
 .strip-accent{font-size:20px;color:var(--cyan)}
