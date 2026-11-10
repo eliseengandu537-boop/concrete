@@ -20,14 +20,14 @@ const packages = [
     name: "AI Integration",
     label: "A connected system",
     description: "We build the system. Your team works the opportunities.",
-    features: ["Website, advanced SEO + AEO and graphic design", "Lead scraping and email outreach setup", "Website lead tracking and content integration", "AI sales dashboard, scripts and advice", "CRM included and monthly reporting"],
+    features: ["Website, advanced SEO + AEO and graphic design", "Lead scraping and email outreach setup", "Website lead tracking and content integration", "Sales dashboard, scripts and advice", "CRM included and monthly reporting"],
     service: "Email outreach setup",
   },
   {
     name: "Full AI Integration",
     label: "Built and run for you",
     description: "Your connected growth system, managed end to end.",
-    features: ["Multi-page website included at no extra cost", "Managed campaigns, lead scraping and email outreach", "Advanced SEO + AEO, graphic design and content", "AI sales dashboard, scripts, advice and CRM included", "Weekly reviews and monthly visibility reporting"],
+    features: ["Multi-page website included at no extra cost", "Managed campaigns, lead scraping and email outreach", "Advanced SEO + AEO, graphic design and content", "Sales dashboard, scripts, advice and CRM included", "Weekly reviews and monthly visibility reporting"],
     service: "Sales dashboard",
   },
 ];
@@ -47,7 +47,7 @@ function ServiceSystem() {
         </div>
       </div>
       <div className="service-system-converge" aria-hidden="true"><span /><Arrow /></div>
-      <div className="service-system-dashboard"><span className="service-system-signal" aria-hidden="true"><i /><i /><i /></span><span>AI SALES DASHBOARD + CRM</span><strong>Who to call.<br />Why. What to say.</strong><p>Lead context, scripts and AI sales advice. CRM included.</p></div>
+      <div className="service-system-dashboard"><span className="service-system-signal" aria-hidden="true"><i /><i /><i /></span><span>SALES DASHBOARD + CRM</span><strong>Who to call.<br />Why. What to say.</strong><p>Lead context, scripts and AI sales advice. CRM included.</p></div>
     </div>
     <div className="service-system-outcomes"><span>THEN YOUR TEAM</span><ol><li>Reviews the lead</li><li><Arrow width="1em" height="1em" />Starts a conversation</li><li><Arrow width="1em" height="1em" />Tracks progress</li></ol><p>Results feed the next improvement <Arrow diagonal width="1em" height="1em" /></p></div>
   </figure>;
@@ -73,7 +73,7 @@ export function Services() {
         <SectionLabel number="03">WHAT WE DO</SectionLabel>
         <div className="section-heading-row">
           <WordReveal id="services-heading">What we <span className="serif-word">do.</span></WordReveal>
-          <div className="section-intro"><p>Business websites, ecommerce stores and custom web apps, alongside advanced SEO and AEO, graphic design and lead-generation campaigns. We connect email outreach, website lead tracking and content with an AI sales dashboard, scripts, sales advice and CRM included.</p><a className="growth-jump" href="#growth-services">Explore our business growth services <Arrow diagonal /></a></div>
+          <div className="section-intro"><p>Business websites, ecommerce stores and custom web apps, alongside advanced SEO and AEO, graphic design and lead-generation campaigns. We connect email outreach, website lead tracking and content with a sales dashboard, scripts, sales advice and CRM included.</p><a className="growth-jump" href="#growth-services">Explore our business growth services <Arrow diagonal /></a></div>
         </div>
       </div>
       <ServiceSystem />
