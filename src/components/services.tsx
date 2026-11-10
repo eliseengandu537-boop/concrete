@@ -73,7 +73,7 @@ export function Services() {
         <SectionLabel number="03">WHAT WE DO</SectionLabel>
         <div className="section-heading-row">
           <WordReveal id="services-heading">What we <span className="serif-word">do.</span></WordReveal>
-          <div className="section-intro"><p>We build and run the system behind your sales team’s call list. For established South African businesses in construction, property, the trades and industrial services.</p><a className="growth-jump" href="#growth-services">Explore our business growth services <Arrow diagonal /></a></div>
+          <div className="section-intro"><p>We help you reach business and consumer customers across industries. From first interest to sales enquiries, bookings and quote requests, we connect the tools and follow-ups that help your team turn interest into opportunity.</p><a className="growth-jump" href="#growth-services">Explore our business growth services <Arrow diagonal /></a></div>
         </div>
       </div>
       <ServiceSystem />
