@@ -18,8 +18,8 @@ export function GrowthServices() {
       <div className="growth-layout">
         <div className="growth-intro">
           <div className="eyebrow"><span className="status-dot" /> MORE THAN A WEBSITE</div>
-          <WordReveal id="growth-heading" className="growth-heading">Turn attention into enquiries. And enquiries into <span className="lime">your next opportunity.</span></WordReveal>
-          <p className="growth-description">We connect the pages, conversations, and tools that help your business grow. Start with what you need. Build from there.</p>
+          <WordReveal id="growth-heading" className="growth-heading">Reach your audience. Give your sales team <span className="lime">a clearer next move.</span></WordReveal>
+          <p className="growth-description">Campaigns, AI lead scraping and email outreach, connected with design, content and your sales tools. CRM included. Built around your audience.</p>
           <div className="growth-journey" aria-label="Attract, capture, connect, grow"><div className="growth-progress-track" aria-hidden="true"><motion.div className="growth-progress" style={{ scaleX: scrollYProgress }} /></div><div className="growth-journey-labels"><span>Attract</span><span>Capture</span><span>Connect</span><span>Grow</span></div></div>
           <ProjectButton className="button button-lime">Build your next step</ProjectButton>
         </div>

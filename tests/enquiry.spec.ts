@@ -11,7 +11,7 @@ async function fillEnquiry(page: Page) {
   await page.getByLabel("Company", { exact: true }).fill("Example Studio");
   await page.getByRole("combobox", { name: "Package", exact: true }).selectOption("Full AI Integration");
   await page.getByRole("checkbox", { name: "Website build", exact: true }).check();
-  await page.getByRole("checkbox", { name: "Smart enquiry forms", exact: true }).check();
+  await page.getByRole("checkbox", { name: "Website lead tracking", exact: true }).check();
   await page.getByRole("combobox", { name: "Project budget", exact: true }).selectOption("R30,000–R60,000");
   await page.getByLabel("A little about your project").fill("We need a new website and a connected enquiry process.");
 }
@@ -38,7 +38,7 @@ test("enquiry sends every field once, then thanks the visitor without navigating
   expect(submissions).toBe(1);
   expect(payload).toMatchObject({
     name: "Alex Example", email: "alex@example.com", company: "Example Studio",
-    package: "Full AI Integration", services: "Website build, Smart enquiry forms", budget: "R30,000–R60,000",
+    package: "Full AI Integration", services: "Website build, Website lead tracking", budget: "R30,000–R60,000",
     message: "We need a new website and a connected enquiry process.", botcheck: "",
   });
   expect(payload).not.toHaveProperty("access_key");
@@ -79,7 +79,7 @@ for (const failure of ["server", "configuration", "rate-limit", "network", "inva
     await expect(page.getByRole("heading", { name: /Message sent/ })).toHaveCount(0);
     await expect(page.getByLabel("Your name")).toHaveValue("Alex Example");
     await expect(page.getByLabel("A little about your project")).toHaveValue("We need a new website and a connected enquiry process.");
-    await expect(page.getByRole("checkbox", { name: "Smart enquiry forms", exact: true })).toBeChecked();
+    await expect(page.getByRole("checkbox", { name: "Website lead tracking", exact: true })).toBeChecked();
     await expect(page.getByRole("button", { name: "Send message", exact: true })).toBeEnabled();
     await page.getByRole("button", { name: "Send message", exact: true }).click();
     await expect(page.getByRole("heading", { name: /Thank you.*Message sent/ })).toBeVisible();

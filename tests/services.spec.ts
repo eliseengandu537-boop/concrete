@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("PDF services and package enquiries remain usable on small screens", async ({ page }) => {
+test("services and package enquiries remain usable on small screens", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/#services");
   await expect(page.getByRole("heading", { name: "What we do.", exact: true })).toBeVisible();

@@ -3,7 +3,7 @@ import { createEnquiryHandler, enquiryMail, type Enquiry } from "../src/lib/enqu
 
 const enquiry: Enquiry = {
   name: "Alex Example", email: "alex@example.com", company: "Example Studio",
-  package: "Website Build", services: "Website build, Smart enquiry forms",
+  package: "Website Build", services: "Website build, Website lead tracking",
   budget: "R30,000–R60,000", message: "A new website for our business.\nPlease get in touch.",
 };
 const origin = "https://www.concretetagency.com";

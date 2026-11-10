@@ -20,14 +20,14 @@ const packages = [
     name: "AI Integration",
     label: "A connected system",
     description: "We build the system. Your team works the opportunities.",
-    features: ["Website, SEO + AEO, design and content", "Monthly verified buyer list", "Outreach setup and a simple pipeline", "Yes-replies handed to your team", "Monthly reporting"],
+    features: ["Website, advanced SEO + AEO and graphic design", "AI lead scraping and email outreach setup", "Website lead tracking and content integration", "AI sales dashboard, scripts and advice", "CRM included and monthly reporting"],
     service: "Email outreach setup",
   },
   {
     name: "Full AI Integration",
     label: "Built and run for you",
     description: "Your connected growth system, managed end to end.",
-    features: ["Multi-page website included at no extra cost", "Scored buyer lists, managed email and LinkedIn", "Advanced SEO + AEO, posts and short videos", "Full dashboard, scripts and AI call advice", "Weekly reviews and monthly visibility reporting"],
+    features: ["Multi-page website included at no extra cost", "Managed campaigns, AI lead scraping and email outreach", "Advanced SEO + AEO, graphic design and content", "AI sales dashboard, scripts, advice and CRM included", "Weekly reviews and monthly visibility reporting"],
     service: "Sales dashboard",
   },
 ];
@@ -38,18 +38,18 @@ function ServiceSystem() {
     <div className="service-system-map">
       <div className="service-system-lanes">
         <div className="service-system-lane">
-          <div className="service-system-lane-label"><span>01</span><strong>Outbound</strong><small>We find your buyers</small></div>
-          <div className="service-system-steps"><span>Buyer research</span><Arrow /><span>Email + LinkedIn</span></div>
+          <div className="service-system-lane-label"><span>01</span><strong>Outbound</strong><small>Reach your audience</small></div>
+          <div className="service-system-steps"><span>AI lead scraper</span><Arrow /><span>AI email outreach</span></div>
         </div>
         <div className="service-system-lane">
-          <div className="service-system-lane-label"><span>02</span><strong>Inbound</strong><small>Your buyers find you</small></div>
+          <div className="service-system-lane-label"><span>02</span><strong>Inbound</strong><small>Your audience finds you</small></div>
           <div className="service-system-steps"><span>SEO, AEO + content</span><Arrow /><span>Your website</span></div>
         </div>
       </div>
       <div className="service-system-converge" aria-hidden="true"><span /><Arrow /></div>
-      <div className="service-system-dashboard"><span className="service-system-signal" aria-hidden="true"><i /><i /><i /></span><span>ONE SALES DASHBOARD</span><strong>Who to call.<br />Why. What to say.</strong><p>Every interested reply and enquiry, with the context your team needs.</p></div>
+      <div className="service-system-dashboard"><span className="service-system-signal" aria-hidden="true"><i /><i /><i /></span><span>AI SALES DASHBOARD + CRM</span><strong>Who to call.<br />Why. What to say.</strong><p>Lead context, scripts and AI sales advice. CRM included.</p></div>
     </div>
-    <div className="service-system-outcomes"><span>THEN YOUR TEAM</span><ol><li>Calls the lead</li><li><Arrow width="1em" height="1em" />Sends a quote</li><li><Arrow width="1em" height="1em" />Records won jobs</li></ol><p>Results feed the next improvement <Arrow diagonal width="1em" height="1em" /></p></div>
+    <div className="service-system-outcomes"><span>THEN YOUR TEAM</span><ol><li>Reviews the lead</li><li><Arrow width="1em" height="1em" />Starts a conversation</li><li><Arrow width="1em" height="1em" />Tracks progress</li></ol><p>Results feed the next improvement <Arrow diagonal width="1em" height="1em" /></p></div>
   </figure>;
 }
 
@@ -73,7 +73,7 @@ export function Services() {
         <SectionLabel number="03">WHAT WE DO</SectionLabel>
         <div className="section-heading-row">
           <WordReveal id="services-heading">What we <span className="serif-word">do.</span></WordReveal>
-          <div className="section-intro"><p>We help you reach business and consumer customers across industries. From first interest to sales enquiries, bookings and quote requests, we connect the tools and follow-ups that help your team turn interest into opportunity.</p><a className="growth-jump" href="#growth-services">Explore our business growth services <Arrow diagonal /></a></div>
+          <div className="section-intro"><p>Advanced SEO and AEO, graphic design, campaigns and AI lead generation for business and consumer audiences. We connect email outreach, website lead tracking and content with an AI sales dashboard, scripts, sales advice and CRM included.</p><a className="growth-jump" href="#growth-services">Explore our business growth services <Arrow diagonal /></a></div>
         </div>
       </div>
       <ServiceSystem />

@@ -13,7 +13,7 @@ export function About() {
         <div className="about-content">
           <h2 id="about-heading" className="sr-only">A little about Concrete Agency</h2>
           <ScrollText className="manifesto" text="Great things happen when bold thinking meets solid craft. We’re here to turn your next big idea into something that matters." highlightFrom={18} />
-          <div className="about-detail"><p>Concrete Agency builds websites and runs growth systems for South African businesses across industries. Whether your customers are businesses, individuals or both, our website design, SEO, AI automation and lead generation services connect your enquiries and give your team a clear next step.</p><ProjectButton className="text-button">Meet your next growth partner</ProjectButton></div>
+          <div className="about-detail"><p>Concrete Agency brings website design, advanced SEO and AEO, graphic design and lead-generation campaigns together for South African businesses. Whether you serve companies, individuals or both, we connect AI lead scraping, email outreach and content with a sales dashboard, scripts, AI advice and CRM included.</p><ProjectButton className="text-button">Meet your next growth partner</ProjectButton></div>
         </div>
       </div>
       <div className="studio-values"><div><span>01</span><h3>Think with purpose.</h3><p>Start with the right questions.</p></div><div><span>02</span><h3>Make with care.</h3><p>Every detail earns its place.</p></div><div><span>03</span><h3>Build for what’s next.</h3><p>Solid foundations. Room to grow.</p></div></div>

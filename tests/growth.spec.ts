@@ -5,21 +5,21 @@ test("growth offerings feed the enquiry form and retain visitor input", async ({
   await page.goto("/");
   await page.getByRole("link", { name: "Explore our business growth services" }).click();
   await expect(page.locator(".growth-item")).toHaveCount(8);
-  await page.getByRole("button", { name: "Discuss AI enquiry assistant", exact: true }).click();
+  await page.getByRole("button", { name: "Discuss AI email outreach + lead scraper", exact: true }).click();
   const dialog = page.getByRole("dialog", { name: /Make it/ });
-  await expect(dialog.getByLabel("AI enquiry assistant", { exact: true })).toBeChecked();
+  await expect(dialog.getByLabel("AI outreach & scraping", { exact: true })).toBeChecked();
   await dialog.getByLabel("Your name").fill("Sam Client");
-  await dialog.getByLabel("Smart enquiry forms", { exact: true }).check();
+  await dialog.getByLabel("Website lead tracking", { exact: true }).check();
   await page.keyboard.press("Escape");
-  await page.getByRole("button", { name: "Discuss Lead dashboard / CRM", exact: true }).click();
+  await page.getByRole("button", { name: "Discuss CRM included", exact: true }).click();
   await expect(dialog.getByLabel("Your name")).toHaveValue("Sam Client");
-  for (const label of ["AI enquiry assistant", "Smart enquiry forms", "Lead dashboard / CRM"]) {
+  for (const label of ["AI outreach & scraping", "Website lead tracking", "Lead dashboard / CRM"]) {
     await expect(dialog.getByLabel(label, { exact: true })).toBeChecked();
   }
   const values = await dialog.locator("form").evaluate(form => new FormData(form as HTMLFormElement).getAll("services"));
-  expect(values).toEqual(expect.arrayContaining(["AI enquiry assistant", "Smart enquiry forms", "Lead dashboard / CRM"]));
+  expect(values).toEqual(expect.arrayContaining(["AI outreach & scraping", "Website lead tracking", "Lead dashboard / CRM"]));
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("button", { name: "Discuss Lead dashboard / CRM", exact: true })).toBeFocused();
+  await expect(page.getByRole("button", { name: "Discuss CRM included", exact: true })).toBeFocused();
 });
 
 test("studio text still advances and reverses with scroll position", async ({ page }) => {
@@ -52,8 +52,8 @@ test("growth section is readable on mobile and honours reduced motion", async ({
   await expect(words.last()).toHaveCSS("transform", "none");
   await expect(page.locator(".growth-type-track")).toHaveCSS("transform", "none");
   await page.screenshot({ path: "test-results/growth-mobile.png" });
-  await page.getByRole("button", { name: "Discuss WhatsApp and booking buttons" }).click();
-  await expect(page.getByRole("dialog").getByLabel("WhatsApp & booking", { exact: true })).toBeChecked();
+  await page.getByRole("button", { name: "Discuss AI integration", exact: true }).click();
+  await expect(page.getByRole("dialog").getByLabel("Connected AI workflows", { exact: true })).toBeChecked();
   await page.keyboard.press("Escape");
   await page.setViewportSize({ width: 320, height: 700 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();

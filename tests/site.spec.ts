@@ -9,7 +9,7 @@ test("desktop renders the glass showcases, images load, and layout stays within 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Bold ideas.Solid impact.");
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator(".hero-showcase .showcase-item")).toHaveCount(3);
-  await expect(page.locator(".showcase-growth")).toContainText("From first click to enquiry.");
+  await expect(page.locator(".showcase-growth")).toContainText("Campaigns. Leads. One pipeline.");
   await expect.poll(() => page.locator(".hero-showcase img").evaluateAll(images => images.length > 0 && images.every(img => (img as HTMLImageElement).complete && (img as HTMLImageElement).naturalWidth > 0))).toBeTruthy();
   await expect(page.locator(".project-card")).toHaveCount(2);
   await expect(page.getByRole("link", { name: "See more work", exact: true })).toHaveAttribute("href", "/work/");
@@ -42,7 +42,7 @@ test("hero enquiries and preview links work while background motion pauses offsc
 
   const previews = [
     { name: "Explore our selected website projects", target: "#work" },
-    { name: "Explore our enquiry and business growth services", target: "#growth-services" },
+    { name: "Explore our lead generation and business growth services", target: "#growth-services" },
     { name: "Explore our web design and development services", target: "#services" },
   ];
   for (const preview of previews) {

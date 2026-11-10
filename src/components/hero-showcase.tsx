@@ -24,10 +24,10 @@ export function HeroShowcase() {
       </div>
     </a>
 
-    <a className="showcase-item showcase-growth" href="#growth-services" aria-label="Explore our enquiry and business growth services">
+    <a className="showcase-item showcase-growth" href="#growth-services" aria-label="Explore our lead generation and business growth services">
       <div className="showcase-label"><span><i />02 / CONNECTED EXPERIENCES</span><ShowcaseArrow /></div>
       <div className="showcase-panel">
-        <div className="showcase-panel-heading"><span>From first click to enquiry.</span><span className="showcase-flow-indicator" aria-hidden="true"><i />CONNECTED</span></div>
+        <div className="showcase-panel-heading"><span>Campaigns. Leads. One pipeline.</span><span className="showcase-flow-indicator" aria-hidden="true"><i />CONNECTED</span></div>
         <div className="showcase-flow" aria-hidden="true">
           <div className="showcase-flow-grid" />
           <svg className="showcase-flow-line" viewBox="0 0 340 116" preserveAspectRatio="none"><defs><linearGradient id="showcase-line-gradient" x1="0" x2="1"><stop offset="0" stopColor="#0089c9" /><stop offset="1" stopColor="#43bedc" /></linearGradient><linearGradient id="showcase-fill-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#43bedc" stopOpacity=".23" /><stop offset="1" stopColor="#43bedc" stopOpacity="0" /></linearGradient></defs><path d="M0 97C50 97 48 71 85 71S129 49 170 49S220 57 255 30S312 22 340 8V116H0Z" fill="url(#showcase-fill-gradient)" /><path d="M0 97C50 97 48 71 85 71S129 49 170 49S220 57 255 30S312 22 340 8" fill="none" stroke="url(#showcase-line-gradient)" strokeWidth="2" /><circle cx="85" cy="71" r="5" fill="#effbff" stroke="#0089c9" strokeWidth="2" /><circle cx="170" cy="49" r="5" fill="#effbff" stroke="#25a6d1" strokeWidth="2" /><circle cx="255" cy="30" r="5" fill="#effbff" stroke="#43bedc" strokeWidth="2" /></svg>
