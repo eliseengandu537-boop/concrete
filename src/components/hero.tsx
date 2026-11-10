@@ -13,7 +13,7 @@ export function Hero() {
       <div className="hero-copy">
         <div className="eyebrow hero-enter"><span className="status-dot" />CONCRETE AGENCY · SOUTH AFRICA</div>
         <WordReveal as="h1" id="hero-heading" delay={100}>Bold ideas.<br />Solid <span className="hero-italic">impact.</span></WordReveal>
-        <p className="hero-description hero-enter delay-2">Websites, SEO + AEO, design and lead generation.<br />AI outreach, integrated sales tools and CRM included.</p>
+        <p className="hero-description hero-enter delay-2">Websites, ecommerce, design and lead generation.<br />SEO + AEO, email outreach and integrated sales tools.</p>
         <a className="hero-offer hero-enter delay-2" href="#service-packages">Website included with Full AI Integration <Arrow diagonal /></a>
         <div className="hero-buttons hero-enter delay-3"><ProjectButton className="hero-orb" arrow={false}><Arrow diagonal /><span>Let’s make<br /><strong>it concrete.</strong></span></ProjectButton></div>
       </div>
@@ -26,5 +26,5 @@ export function Hero() {
 }
 
 export function DisciplineStrip() {
-  return <div className="discipline-strip" aria-label="AI lead scraping, AI email outreach, SEO and AEO, graphic design, content integration, AI integration and CRM"><div className="discipline-track">{[0, 1].map(copy => <div className="discipline-group" key={copy} aria-hidden={copy === 1}>{["AI lead scraping", "AI email outreach", "SEO + AEO", "Graphic design", "Content integration", "AI integration + CRM"].map(word => <span key={word}>{word}<FoundationAccent className="strip-accent" /></span>)}</div>)}</div></div>;
+  return <div className="discipline-strip" aria-label="Lead scraping, email outreach, SEO and AEO, graphic design, content integration, AI integration and CRM"><div className="discipline-track">{[0, 1].map(copy => <div className="discipline-group" key={copy} aria-hidden={copy === 1}>{["Lead scraping", "Email outreach", "SEO + AEO", "Graphic design", "Content integration", "AI integration + CRM"].map(word => <span key={word}>{word}<FoundationAccent className="strip-accent" /></span>)}</div>)}</div></div>;
 }
